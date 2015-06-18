@@ -82,7 +82,7 @@ gulp.task('test', ['lint'], function() {
 
 gulp.task('lint', function () {
 	console.log('*****LINTING*****');
-    return gulp.src(['server/**/*.js', 'client/**/*.js', 'test/**/*.js'])
+    return gulp.src(['server/**/*.js', 'app/www/js/**/*.js', 'test/**/*.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError());

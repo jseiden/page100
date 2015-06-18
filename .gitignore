@@ -7,3 +7,4 @@ pids
 build/
 dist
 bower_components/
+.DS_store

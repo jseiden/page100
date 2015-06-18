@@ -2,9 +2,12 @@
 
 var gulp = require('gulp'),
 	mocha = require('gulp-mocha'),
-	eslint = require('gulp-eslint');
-
-
+	eslint = require('gulp-eslint'),
+	jade = require('gulp-jade'),
+	less = require('gulp-less'),
+	path = require('path'),
+	clean = require('gulp-clean');
+ 
 
 gulp.task('default', ['test'], function () {
     console.log('READDDDY TO RUMMMMBLE')
@@ -35,6 +38,32 @@ gulp.task('lint', function () {
 });
 
 
+gulp.task('sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./server/"
+        }
+    });
+});
+
+
+gulp.task('clean', function () {
+    return gulp.src('./dist', {read: false})
+        .pipe(clean());
+});
+
+
+gulp.task('compile', ['clean'], function() {
+  gulp.src('./client/assets/css/*.less')
+      .pipe(less({
+        paths: [ path.join(__dirname, 'less', 'includes') ]
+      }))
+      .pipe(gulp.dest('./dist/css'));
+
+  gulp.src('./client/**/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('./dist/'))
+});
 
 
 

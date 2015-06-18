@@ -41,16 +41,16 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+.controller('StackCtrl', function($scope) {
+  $scope.stack = [
+    { img:'cover', title: '100 Years of Solitude', id: 1 },
+    { img:'cover', title: 'Johnny Got His Gun', id: 2 },
+    { img:'cover', title: 'East of Eden', id: 3 },
+    { img:'cover', title: 'Zero to One', id: 4 },
+    { img:'cover', title: 'Invisible Man', id: 5 },
+    { img:'cover', title: 'Romeo and Juliet', id: 6 }
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('IndvBookCtrl', function($scope, $stateParams) {
 });

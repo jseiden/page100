@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 
@@ -11,7 +13,7 @@ var gulp = require('gulp');
 gulp.task('integrate', function() {
 	console.log('\n');
 	console.log('*****DEV TEAM TASKS******');
-	console.log('1. ensure that you have latest known-good code. ("git pull origin master")');
+	console.log('1. ensure that you have latest known-good code. ("git pull --rebase origin master")');
 	console.log('2. make sure git status is clean');
 	console.log('3. build on your box ("gulp")');
 	console.log('4. push to remote repository ("git push origin staging")');

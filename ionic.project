@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "app_id": "",
+  "documentRoot": "app/www",
+  "createDocumentRoot": "app/www",
+  "watchPatterns": [
+    "app/www/**/*",
+    "!app/lib/**/*"
+  ]
+}

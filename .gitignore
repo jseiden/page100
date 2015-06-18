@@ -1,1 +1,9 @@
 node_modules/
+logs
+*.log
+pids
+*.pid
+*.seed
+build/
+dist
+bower_components/

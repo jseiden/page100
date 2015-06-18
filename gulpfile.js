@@ -1,9 +1,18 @@
 'use strict';
 
-var gulp = require('gulp');
-var mocha = require('gulp-mocha');
+var gulp = require('gulp'),
+	mocha = require('gulp-mocha'),
+	eslint = require('gulp-eslint');
 
-gulp.task('default', function() {
+
+
+gulp.task('default', ['test'], function () {
+    console.log('READDDDY TO RUMMMMBLE')
+});
+
+
+gulp.task('test', ['lint'], function() {
+	console.log('*****TESTING*****');
   return gulp.src(['test/*.js'], { read: false })
     .pipe(mocha({
       reporter: 'spec',
@@ -15,6 +24,16 @@ gulp.task('default', function() {
       }
     }));
 });
+
+
+gulp.task('lint', function () {
+	console.log('*****LINTING*****');
+    return gulp.src(['server/**/*.js', 'client/**/*.js', 'test/**/*.js'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
+});
+
 
 
 

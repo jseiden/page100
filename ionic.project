@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "app_id": "",
+  "app_id": "480ea2a0",
   "documentRoot": "app/www",
   "createDocumentRoot": "app/www",
   "watchPatterns": [

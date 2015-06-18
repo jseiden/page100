@@ -8,3 +8,5 @@ build/
 dist/
 bower_components/
 .DS_store
+app/platforms/
+app/plugins/

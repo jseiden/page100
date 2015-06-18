@@ -1,11 +1,20 @@
 'use strict';
 
 var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 
-
-
-
-
+gulp.task('default', function() {
+  return gulp.src(['test/*.js'], { read: false })
+    .pipe(mocha({
+      reporter: 'spec',
+      globals: {
+      	chai: require('chai'),
+        assert: require('chai').assert,
+        expect: require('chai').expect,
+        should: require('chai').should()
+      }
+    }));
+});
 
 
 

@@ -31,24 +31,24 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
     controller: "AppCtrl"
   })
 
-  .state("app.search", {
-    url: "/search",
+  .state("app.filters", {
+    url: "/filters",
     views: {
       "menuContent": {
-        templateUrl: "templates/search.html"
+        templateUrl: "templates/filters.html"
       }
     }
   })
 
-  .state("app.browse", {
-    url: "/browse",
+  .state("app.accountSettings", {
+    url: "/accountSettings",
     views: {
       "menuContent": {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/accountSettings.html"
       }
     }
   })
-    .state("app.playlists", {
+    .state("app.stack", {
       url: "/stack",
       views: {
         "menuContent": {
@@ -58,8 +58,8 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
       }
     })
 
-  .state("app.single", {
-    url: "/stack/:indvBookId",
+  .state("app.book", {
+    url: "/stack/:bookId",
     views: {
       "menuContent": {
         templateUrl: "templates/indvBook.html",

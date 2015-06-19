@@ -55,4 +55,5 @@ angular.module("starter.controllers", [])
 
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);
+  $scope.indvBook = $stateParams;
 });

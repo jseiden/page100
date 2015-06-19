@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-content ng-controller='AuthCtrl'>
+    <form ng-submit="signin()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Sign In</button>
+        </label>
+      </div>
+    </form>
+    <p> Don't have an account? <a href = '#/app/signup'>Sign Up Here</a></p>
+  </ion-content>
+</ion-view>

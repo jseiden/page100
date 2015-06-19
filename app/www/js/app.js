@@ -31,42 +31,51 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
     controller: "AppCtrl"
   })
 
-  .state("app.search", {
-    url: "/search",
+  .state("app.main", {
+    url: "/main",
     views: {
-      "menuContent": {
-        templateUrl: "templates/search.html"
+     "menuContent": {
+        templateUrl: "templates/main.html"
       }
     }
   })
 
-  .state("app.browse", {
-    url: "/browse",
+  .state("app.filters", {
+    url: "/filters",
     views: {
       "menuContent": {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/filters.html"
       }
     }
   })
-    .state("app.playlists", {
-      url: "/playlists",
+
+  .state("app.accountSettings", {
+    url: "/accountSettings",
+    views: {
+      "menuContent": {
+        templateUrl: "templates/accountSettings.html"
+      }
+    }
+  })
+    .state("app.stack", {
+      url: "/stack",
       views: {
         "menuContent": {
-          templateUrl: "templates/playlists.html",
-          controller: "PlaylistsCtrl"
+          templateUrl: "templates/stack.html",
+          controller: "StackCtrl"
         }
       }
     })
 
-  .state("app.single", {
-    url: "/playlists/:playlistId",
+  .state("app.book", {
+    url: "/stack/:bookId",
     views: {
       "menuContent": {
-        templateUrl: "templates/playlist.html",
-        controller: "PlaylistCtrl"
+        templateUrl: "templates/indvBook.html",
+        controller: "IndvBookCtrl"
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise("/app/playlists");
+  $urlRouterProvider.otherwise("/app/main");
 });

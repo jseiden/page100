@@ -4,7 +4,7 @@
 
 please run `gulp integrate` in your command line for a list of tasks.
 
-1. Clone
+1. Fork
 1. Create a namespaced feature branch from master
   - bug/...
   - feat/...
@@ -18,10 +18,11 @@ please run `gulp integrate` in your command line for a list of tasks.
   - [cleanup] ...
   - [test] ...
   - [doc] ...
-1. When you've finished with your fix or feature, pull origin master to integrate latest known-good code.
+1. When you've finished with your fix or feature, pull upstream master to integrate latest known-good code.
 1. Fix conflicts if they arise. run gulp to build and test.
 1. Fix any issues and push your fixes to origin staging.
-1. Once your push has been reviewed and tested, it will be merged by another member of the team. 
+1. Create pull request on Github
+1. Once your pull request has been reviewed and tested, it will be merged by another member of the team. 
 
 
 ## Detailed Workflow
@@ -77,7 +78,7 @@ changes to the master branch into yours by running this command
 from your branch:
 
 ```bash
-git pull --rebase origin master
+git pull --rebase upstream master
 ```
 
 This will start the rebase process. You must commit all of your changes
@@ -112,7 +113,7 @@ you get here again and nothing is broken and all the tests pass.
 
 ### Push to staging
 
-**git push origin staging** Do not push to master! **DO NOT PUSH TO MASTER**
+**git push origin staging** 
 
 Thanks for contributing!
 

@@ -1,5 +1,23 @@
 <ion-view view-title="Filter Preferences">
   <ion-content>
     <h1>Filters</h1>
+    <div class="list">
+    	<label class="item item-input item-select">
+    		<div class="input label">
+    		Genres
+    		</div>
+    		<select>
+    			<option selected ng-repeat="genre in genres">{{ genre.title }}</option>
+    		</select>
+		</label>
+		<label class="item item-input item-select">
+    		<div class="input label">
+    		Popular Lists
+    		</div>
+    		<select>
+    			<option selected ng-repeat="list in popularLists">{{ list.title }}</option>
+    		</select>
+		</label>
+	</div>
   </ion-content>
 </ion-view>

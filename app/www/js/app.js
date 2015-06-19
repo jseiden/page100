@@ -44,7 +44,8 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
     url: "/filters",
     views: {
       "menuContent": {
-        templateUrl: "templates/filters.html"
+        templateUrl: "templates/filters.html",
+        controller: "FiltersCtrl"
       }
     }
   })

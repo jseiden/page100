@@ -31,6 +31,15 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
     controller: "AppCtrl"
   })
 
+  .state("app.main", {
+    url: "/main",
+    views: {
+     "menuContent": {
+        templateUrl: "templates/main.html"
+      }
+    }
+  })
+
   .state("app.filters", {
     url: "/filters",
     views: {
@@ -68,5 +77,5 @@ angular.module("starter", ["ionic", "starter.controllers", "ionic.service.deploy
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise("/app/stack");
+  $urlRouterProvider.otherwise("/app/main");
 });

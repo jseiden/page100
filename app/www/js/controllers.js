@@ -60,4 +60,23 @@ angular.module("starter.controllers", [])
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);
   $scope.indvBook = $stateParams;
+})
+
+.controller("FiltersCtrl", function($scope) {
+
+  $scope.genres = [{title: "fantasy", filter: true},
+    {title: "horror", filter: false},
+    {title: "history", filter: false}
+  ];
+
+  $scope.popularLists = [{title: "BestSellers", filter: true},
+    {title: "Top 10", filter: false},
+    {title: "Top 25", filter: false}
+  ];
+
+  // retrieve genres
+  $scope.getUserGenres = function(){};
+
+  // update genre filters in database
+  $scope.changeUserGenres = function(){};
 });

@@ -1,26 +1,22 @@
 var Firebase = require('firebase');
 var baseUrl = "https://flickering-torch-8617.firebaseio.com/";
 var ref = new Firebase(baseUrl);
+var usersRef = ref.child("users");
 
 module.exports = {
-  // getUsers: function(req, res){
-
-  //   ref.on("value", function(snapshot) {
-  //     console.log(snapshot.val());
-  //   }, function (errorObject) {
-  //     console.log("The read failed: " + errorObject.code);
-  //   });
-  //   // res.send("userController.getUser")
-  // }
-
-  // signup: function(req, res){
-  //    res.send("userController..signup") ;
-  // }
-
-  // login: function (req, res) { 
-  // }, 
-  postSomething: function(req, res){
-    var usersRef = ref.child("users");
-      usersRef.push({"robert" : "toucan"});
+  postUser: function(req, res){
+      var demoName = "robert";
+      usersRef.child(demoName).set({
+        "password" : "mynameisbob", 
+        "preferences" : {
+          "fiction" : true,
+          "mystery" : true,
+          "romance" : true, 
+          "vampire" : true
+        }
+      })
+  },
+  getUsers : function(req, res){
+    res.send("you've reached getUsers");
   }
 };

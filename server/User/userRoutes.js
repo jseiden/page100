@@ -12,6 +12,6 @@ module.exports = function (app) {
 
   app.get("/", function(req, res) {
     // res.sendFile('../../app/www/index.html')
-    res.send("sup brah");
+    res.send("reached root");
   });
 };

@@ -3,9 +3,13 @@ var userController = require('./userController.js');
 module.exports = function (app) {
   // app is userRouter injected from middlware.js
 
-  app.post('/postUser', userController.postUser);
+  app.post('/app/signin', userController.signin);
+  app.post('/app/signup', userController.signup);
   
+
+  app.post('/postUser', userController.postUser);
   app.get('/getUsers', userController.getUsers);
+
  
   // app.post('/signin', userController.signin);
   // app.get('/signedin', userController.checkAuth);

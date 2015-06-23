@@ -8,7 +8,7 @@ module.exports = function (app) {
   app.post("/app/signin", userController.signin);
   app.post("/app/signup", userController.signup);
 
-  app.post("/postUser", userController.postUser);
+  // app.post("/postUser", userController.postUser);
   app.get("/getUsers", userController.getUsers);
 
   // app.post('/signin', userController.signin);

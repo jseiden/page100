@@ -1,5 +1,5 @@
 "use strict";
-
+var Book = require('./bookModel');
 module.exports = {
   postBook: function (req, res){
     res.send("reached postBook in bookController");

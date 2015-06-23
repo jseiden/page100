@@ -2,7 +2,7 @@
 
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-var tokenHandler = require("./helpers.js");
+var helpers = require("./helpers.js");
 
 module.exports = function (app, express) {
 
@@ -16,13 +16,14 @@ module.exports = function (app, express) {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
  //serves static files
- //TODO jslint doesn't like '+' but haven't gotten path.join to work 
+ //TODO jslint doesn't like '+' but haven't gotten path.join to work
   app.use(express.static(__dirname + "./../../app/www"));
 
 
   // app.use('/users', userRouter);
   // app.use('/books', bookRouter);
-  app.use("./../User", tokenHandler.decode);
+ 
+  app.use("./../User", helpers.decode);
 
   require("../User/userRoutes.js")(app, express);
   require("../Book/bookRoutes.js")(app, express);

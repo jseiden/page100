@@ -6,24 +6,24 @@ var jwt = require("jwt-simple");
 module.exports = {
   signin: function(req, res, next){
     // res.send("reached signin in userController");
-    var username = req.body.username; 
+    var username = req.body.username;
     var password = req.body.password;
 
     var findUser = Q.nBind(User.findOne, User);
     findUser({username: username})
       .then(function(user){
         if(!user){
-          next(new Error("User does not exist"))
+          next(new Error("User does not exist"));
         } else{
           return user.comparePasswords(password)
             .then(function(foundUser){
               if (foundUser){
-                var token = jwt.encode(user, "secret")
+                var token = jwt.encode(user, "secret");
                 res.json({token: token});
               } else{
                 return next(new Error("No user"));
               }
-            })
+            });
         }
       })
       .fail(function(error){
@@ -43,7 +43,7 @@ module.exports = {
     findOne({username: username})
       .then(function(user) {
         if (user) {
-          next(new Error('User already exist!'));
+          next(new Error("User already exist!"));
         } else {
           // make a new user if not one
           create = Q.nbind(User.create, User);
@@ -64,7 +64,7 @@ module.exports = {
       });
   },
 
-  
+
 
   //this queries the database for data in demoName     TODO: query for name dynamically
   getUsers: function(req, res){
@@ -95,5 +95,5 @@ module.exports = {
           next(error);
         });
     }
-  } 
+  }
 };

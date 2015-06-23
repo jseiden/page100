@@ -1,5 +1,5 @@
 "use strict";
-
+var path = require("path");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var helpers = require("./helpers.js");
@@ -17,12 +17,12 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
  //serves static files
  //TODO jslint doesn't like '+' but haven't gotten path.join to work
-  app.use(express.static(__dirname + "./../../app/www"));
+  app.use(express.static(path.join(__dirname, "./../../app/www")));
 
 
   // app.use('/users', userRouter);
   // app.use('/books', bookRouter);
- 
+
   app.use("./../User", helpers.decode);
 
   require("../User/userRoutes.js")(app, express);

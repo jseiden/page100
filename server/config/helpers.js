@@ -4,7 +4,7 @@
 var jwt = require("jwt-simple");
 
 module.exports = {
-  //TODO: decide if we need these 
+  //TODO: decide if we need these
 
   // errorLogger: function (error, req, res, next) {
   //   // log the error then send it to the next middleware in
@@ -26,7 +26,7 @@ module.exports = {
 
     if (!token) {
       return res.send(403); // send forbidden if a token is not provided
-   
+
     }
     try {
       // decode token and attach user to the request

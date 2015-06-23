@@ -5,7 +5,7 @@ var BookSchema = new mongoose.Schema({
   title: String,
   author: String,
   genre: String,
-  sample: String, 
+  sample: String,
   amazonLink: String
 });
 

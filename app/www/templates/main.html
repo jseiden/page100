@@ -1,17 +1,19 @@
 <ion-view view-title="Page 100">
-  <ion-content>
+  <ion-pane ng-controller="CardsCtrl">
+      <td-cards>
+        <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
+        on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)">
+          <div class="image">
+            <div class = "no-text overlayBox"><div class="noBox boxed">Trash</div></div>
+            <img ng-src="{{card.image}}">
+            <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
+          </div>
+        </td-card>
+        <div class="item item-avatar">
+          <h2>{{currentCard.title}}</h2>
+          <p>{{currentCard.author}}</p>
+        </div>
+      </td-cards>
 
-    <div class="list card">
-
-		<div class="item item-image">
-		<!-- TO DO: Links should got to individual book's info page -->
-    		<a href="#/app/main/{{indvBookPage}}"><img src="../img/ionic.png"></a>
-		</div>
-
-    	<div class="item item-avatar">
-    		<h2>East of Eden</h2>
-    		<p>John Steinbeck</p>
-		</div>
-	</div>
-  </ion-content>
+    </ion-pane>
 </ion-view>

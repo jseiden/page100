@@ -1,8 +1,18 @@
+"use strict";
+
+var morgan = require("morgan");
+
 module.exports = function (app, express) {
-  var userRouter = express.Router();
+  // var userRouter = express.Router();
+  // var bookRouter = express.Router();
 
-  app.use('/users', userRouter); // use user router for all user request
 
-  //inject router into correct router file
-  require('../User/userRoutes.js')(app, express);
+  //logs http requests
+  app.use(morgan("dev"));
+
+  // app.use('/users', userRouter);
+  // app.use('/books', bookRouter);
+
+  require("../User/userRoutes.js")(app, express);
+  require("../Book/bookRoutes.js")(app, express);
 };

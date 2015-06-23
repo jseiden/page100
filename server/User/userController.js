@@ -1,28 +1,23 @@
-// var Firebase = require('firebase');
-// var baseUrl = "https://flickering-torch-8617.firebaseio.com/";
-// var ref = new Firebase(baseUrl);
-// var usersRef = ref.child("users");
+"use strict";
 
 module.exports = {
   //this posts user 'demoname' to the users object  TODO: set up generic user obj template, TODO: input name dynamically
   // postUser: function(req, res){
-  postUser: function(req, res){
-      // var demoName = "chris";
-      // usersRef.child(demoName).set({
-      //   "password" : "mynameisjesse", 
-      //   "preferences" : {
-      //     "fiction" : true,
-      //     "mystery" : true,
-      //     "romance" : true, 
-      //     "vampire" : true
-      //   }
-      // })
+  signin: function(req, res){
+    res.send("reached signin in userController");
   },
+
+  signup: function(req, res){
+    res.send("reached signup in userController");
+  },
+
+  postUser: function(req, res){
+    res.send("reached postUser in userController");
+  },
+
   //this queries the database for data in demoName     TODO: query for name dynamically
-  getUsers : function(req, res){
-  //   var demoName = "Jake";
-  //   usersRef.on("value", function(snapshot){      
-  //     res.send(snapshot.val());
-  //   })
-  // }
+  getUsers: function(req, res){
+
+    res.send("reached getUser in userController");
+}
 };

@@ -55,6 +55,8 @@ angular.module("starter.controllers", [])
   $scope.cardPartialSwipe = function(amt){
     console.log(amt);
   };
+
+  $scope.clicked = false;
 })
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);

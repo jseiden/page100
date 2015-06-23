@@ -1,6 +1,8 @@
 "use strict";
 var User = require("./userModel.js");
+//promise library
 var Q = require("q");
+//JSON tokens
 var jwt = require("jwt-simple");
 
 module.exports = {
@@ -8,6 +10,8 @@ module.exports = {
     // res.send("reached signin in userController");
     var username = req.body.username;
     var password = req.body.password;
+
+    //TODO: this following code block seems to produce an error upon sigin request
 
     var findUser = Q.nBind(User.findOne, User);
     findUser({username: username})
@@ -29,10 +33,10 @@ module.exports = {
       .fail(function(error){
         next(error);
       });
+      res.send("reached signin in userController");
   },
 
   signup: function(req, res, next){
-    // res.send("reached signup in userController");
     var username = req.body.username;
     var password = req.body.password;
     var create;
@@ -43,7 +47,7 @@ module.exports = {
     findOne({username: username})
       .then(function(user) {
         if (user) {
-          next(new Error("User already exist!"));
+          next(new Error("User already exists!"));
         } else {
           // make a new user if not one
           create = Q.nbind(User.create, User);
@@ -62,6 +66,7 @@ module.exports = {
       .fail(function (error) {
         next(error);
       });
+    res.send("reached signup in userController");
   },
 
 

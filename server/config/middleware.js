@@ -12,11 +12,12 @@ module.exports = function (app, express) {
 
   //logs http requests
   app.use(morgan("dev"));
+
   //parses body of http request
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
+
  //serves static files
- //TODO jslint doesn't like '+' but haven't gotten path.join to work
   app.use(express.static(path.join(__dirname, "./../../app/www")));
 
 

@@ -13,7 +13,49 @@ angular.module("starter.controllers", [])
     {img: "cover", title: "Romeo and Juliet", id: 6 }
   ];
 })
+.directive("noScroll", function(){
+  return {
+    restrict: "A",
+    link: function($scope, $element){
+      $element.on("touchmove", function(e){
+        e.preventDefault();
+      });
+    }
+  };
+})
+.controller("CardsCtrl", function($scope){
+  var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck"}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
+  $scope.cards = [];
+  $scope.currentCard = cardTypes[0];
 
+  $scope.addCard = function(index){
+    var newCard = cardTypes[index];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+  };
+
+  for(var i = 0; i < cardTypes.length; i++){
+    $scope.addCard(i);
+  }
+
+  $scope.cardSwipedLeft = function(index) {
+   console.log("Left swipe", index);
+ };
+
+  $scope.cardSwipedRight = function(index) {
+    console.log("Right swipe", index);
+  };
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+    $scope.currentCard = $scope.cards[0];
+    console.log("Card removed");
+  };
+
+  $scope.cardPartialSwipe = function(amt){
+    console.log(amt);
+  };
+})
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);
   $scope.indvBook = $stateParams;

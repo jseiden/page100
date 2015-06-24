@@ -21,7 +21,7 @@ angular.module("starter", ["ionic", "starter.auth", "starter.services", "starter
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
 
   .state("app", {
@@ -97,6 +97,8 @@ angular.module("starter", ["ionic", "starter.auth", "starter.services", "starter
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise("/app/signin");
+  $httpProvider.interceptors.push("AttachTokens");
+
 })
 .factory("AttachTokens", function ($window) {
   // this is an $httpInterceptor

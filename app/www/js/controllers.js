@@ -10,6 +10,10 @@ angular.module("starter.controllers", [])
   };
 })
 
+.controller("AccountCtrl", function($scope){
+   $scope.getUsername = Account
+})
+
 .controller("StackCtrl", function($scope) {
   $scope.stack = [
     {img: "cover", title: "100 Years of Solitude", id: 1 },

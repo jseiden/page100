@@ -1,8 +1,8 @@
 <ion-view view-title="Stack">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="book in stack" href="/#/app/stack/{{ book.id }}">
-        {{book.title}}
+      <ion-item ng-repeat="book in stack" href="/#/app/stack/{{ book.id }}">{{book.title}}
+      <div ng-click="removeFromStack($index)"><a href="#">remove from stack</a></div>
       </ion-item>
     </ion-list>
   </ion-content>

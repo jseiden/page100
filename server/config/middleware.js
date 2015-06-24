@@ -9,6 +9,7 @@ module.exports = function (app, express) {
   //TODO: figure out if express.Router is still needed. mixed options online and works as is
   var userRouter = express.Router();
   var bookRouter = express.Router();
+  var booksApiRouter = express.Router();
 
   //logs http requests
   app.use(morgan("dev"));
@@ -21,9 +22,14 @@ module.exports = function (app, express) {
   app.use("/user", userRouter);
   app.use("/book", bookRouter);
 
+  app.use("/booksApi", booksApiRouter);
   app.use("./../User", helpers.decode);
 
-  require("../User/userRoutes.js")(userRouter);
-  require("../Book/bookRoutes.js")(bookRouter);
-  require("../Book/apiRoutes.js")(app, express);
+  //TODO figure out why this format breaks it:
+  //   require("../User/userRoutes.js")(userRouter);
+
+  require("./../User/userRoutes.js")(userRouter);
+  require("./../Book/bookRoutes.js")(bookRouter);
+  require("./../Book/booksApiRoutes.js")(booksApiRouter);
+
 };

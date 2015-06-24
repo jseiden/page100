@@ -5,6 +5,13 @@ module.exports = function(app){
 
  app.post("/postBook", bookController.postBook);
 
+ 
+
+
  app.get("/getBooks", bookController.getBooks);
+
+ app.post("/app/addToStack", bookController.addToStack);
+
+
 
 };

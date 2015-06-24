@@ -23,7 +23,6 @@ module.exports = function (app, express) {
   app.use("/user", userRouter);
   app.use("/book", bookRouter);
 
-  
   app.use("/booksApi", booksApiRouter);
   app.use("./../User", helpers.decode);
 

@@ -5,7 +5,7 @@ angular.module("starter.services", [])
     var signin = function (user) {
         return $http({
           method: "POST",
-          url: "/app/signin",
+          url: "/api/users",
           data: user
         })
         .then(function (resp) {
@@ -16,7 +16,7 @@ angular.module("starter.services", [])
     var signup = function (user) {
       return $http({
         method: "POST",
-        url: "/app/signup",
+        url: "/api/users",
         data: user
       })
       .then(function (resp) {

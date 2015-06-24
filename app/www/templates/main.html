@@ -4,9 +4,9 @@
         <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
         on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" ng-click="clicked = !clicked">
           <div class="image front" ng-show="!clicked">
-            <div class = "no-text overlayBox"><div class="noBox boxed">Dislike</div></div>
+            <div class = "no-text overlayBox"><div class="noBox boxed">Trash</div></div>
             <img ng-src="{{card.image}}">
-            <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Like</div></div>
+            <div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Save</div></div>
           </div>
           <div class= "back" ng-show="clicked">
             <img ng-src="img/text.png">

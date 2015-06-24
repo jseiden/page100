@@ -7,9 +7,9 @@ var helpers = require("./helpers.js");
 module.exports = function (app, express) {
 
   //TODO: figure out if express.Router is still needed. mixed options online and works as is
-  var UserRouter = express.Router();
-  var BookRouter = express.Router();
-  var BooksApiRouter = express.Router();
+  var userRouter = express.Router();
+  var bookRouter = express.Router();
+  var booksApiRouter = express.Router();
 
   //logs http requests
   app.use(morgan("dev"));
@@ -18,16 +18,16 @@ module.exports = function (app, express) {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
-  app.use("/api/users", UserRouter);
-  app.use("/api/books", BookRouter);
-  app.use("/booksApi", BooksApiRouter);
+  app.use("/api/users", userRouter);
+  app.use("/api/books", bookRouter);
+  app.use("/booksApi", booksApiRouter);
 
   app.use("./../User", helpers.decode);
 
   //TODO figure out why this format breaks it:
   //   require("../User/userRoutes.js")(userRouter);
 
-  require("./../User/userRoutes.js")(UserRouter);
-  require("./../Book/bookRoutes.js")(BookRouter);
-  require("./../Book/booksApiRoutes.js")(BooksApiRouter);
+  require("./../User/userRoutes.js")(userRouter);
+  require("./../Book/bookRoutes.js")(bookRouter);
+  require("./../Book/booksApiRoutes.js")(booksApiRouter);
 };

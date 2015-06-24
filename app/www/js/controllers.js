@@ -3,6 +3,14 @@
 
 angular.module("starter.controllers", [])
 
+.controller("AppCtrl", function($scope, $location){
+
+  $scope.go = function( path ){
+    $location.path( path );
+  };
+  
+})
+
 .controller("StackCtrl", function($scope) {
   $scope.stack = [
     {img: "cover", title: "100 Years of Solitude", id: 1 },

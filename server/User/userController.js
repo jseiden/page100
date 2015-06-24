@@ -54,13 +54,19 @@ module.exports = {
     //.populate() makes stack populate array of book objects based on IDs in the user's stack array.
     //it does this by accessing the book document store and matching IDs.
     //this is possible because we reference books in the user schema.
-    req.user.populate("stack")
-      .exec(function(err, books) {
-        if (err) {
-          console.log("cannot find stack");
-        } else {
+    console.log(req.user.stack);
+    var populate = Q.nbind(req.user.populate, req.user);
+
+
+    populate("stack")
+      .then(function(books) {
+        if (books) {
           res.json(books);
+        } else {
+          console.log("cannot find stack");
         }
+      }).fail(function(err) {
+        console.log(err);
       });
   },
 
@@ -69,7 +75,7 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
 
-    //TODO: this following code block seems to produce an error upon sigin request
+    //TODO: this following code block seems to produce an error upon sigin request. may be a problem with curl, which is what I used to debug
 
     var findUser = Q.nBind(User.findOne, User);
     findUser({username: username})

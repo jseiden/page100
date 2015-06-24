@@ -16,4 +16,4 @@ var BookSchema = new mongoose.Schema({
 
 BookSchema.plugin(autoIncrement.plugin, "Book");
 
-module.exports = connection.model("Book", BookSchema);
+module.exports = mongoose.model("Book", BookSchema);

@@ -18,6 +18,7 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
 
  //serves static files
+ //Jake: we aren't serving static files on this server
   app.use(express.static(path.join(__dirname, "./../../app/www")));
 
 

@@ -14,19 +14,27 @@ angular.module("starter.controllers", [])
 
   // TO DO: connect to user specific stack.
   $scope.getStack = function() {
-    BookChoices.getStack()
-      .then(function(stack){
-        $scope.stack = stack;
-      });
+  //   BookChoices.getStack()
+  //     .then(function(stack){
+  //       $scope.stack = stack;
+  //     });
   };
-  // $scope.stack = [
-  //   {img: "cover", title: "100 Years of Solitude", id: 1 },
-  //   {img: "cover", title: "Johnny Got His Gun", id: 2 },
-  //   {img: "cover", title: "East of Eden", id: 3 },
-  //   {img: "cover", title: "Zero to One", id: 4 },
-  //   {img: "cover", title: "Invisible Man", id: 5 },
-  //   {img: "cover", title: "Romeo and Juliet", id: 6 }
-  // ];
+
+  $scope.removeFromStack = function( index ){
+    BookChoices.removeFromStack(index)
+    $scope.getStack();
+  };
+
+
+  // Test Data
+  $scope.stack = [
+    {img: "cover", title: "100 Years of Solitude", id: 1 },
+    {img: "cover", title: "Johnny Got His Gun", id: 2 },
+    {img: "cover", title: "East of Eden", id: 3 },
+    {img: "cover", title: "Zero to One", id: 4 },
+    {img: "cover", title: "Invisible Man", id: 5 },
+    {img: "cover", title: "Romeo and Juliet", id: 6 }
+  ];
 })
 
 .directive("noScroll", function(){

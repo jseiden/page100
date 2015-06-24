@@ -53,10 +53,18 @@ angular.module("starter.services", [])
       });
     };
 
+    var removeFromStack = function (book) {
+      return $http({
+        method: "POST",
+        url: "api/users",
+        data: book
+      })
+    };
 
     return {
       addToStack: addToStack,
-      getStack: getStack
+      getStack: getStack,
+      removeFromStack: removeFromStack
     };
 
   });

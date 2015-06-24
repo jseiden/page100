@@ -9,6 +9,7 @@ module.exports = {
   //this posts user 'demoname' to the users object  TODO: set up generic user obj template, TODO: input name dynamically
   // postUser: function(req, res){
 
+
   getUserById: function (req, res, next, id) {
     var findUser = Q.nbind(User.findOne, User);
     findUser({_id: id})
@@ -49,7 +50,9 @@ module.exports = {
 
 
   getStack: function(req, res) {
-    //populate makes question
+    //.populate() makes stack populate array of book objects based on IDs in the user's stack array.
+    //it does this by accessing the book document store and matching IDs.
+    //this is possible because we reference books in the user schema.
     req.user.populate("stack")
       .exec(function(err, books) {
         if (err) {

@@ -5,6 +5,7 @@ var Q = require("q");
 var SALT_WORK_FACTOR = 10;
 
 var UserSchema = new mongoose.Schema({
+  _id: Schema.Types.ObjectId,
   username: {
     type: String,
     required: true,
@@ -14,10 +15,8 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  _id: Schema.Types.ObjectId,
   filterPreferences: [String],
   salt: String,
-  //TODO: find out how mongoose deals with objects inside objects
   stack: [{ type: Schema.Types.ObjectId, ref: "Book" }]
 });
 

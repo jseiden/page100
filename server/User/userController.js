@@ -127,13 +127,10 @@ module.exports = {
     res.send("reached signup in userController");
   },
 
-
-
-  //this queries the database for data in demoName     TODO: query for name dynamically
+// test
   getUsers: function(req, res){
     res.send("reached getUser in userController");
   },
-
 
   checkAuth: function (req, res, next) {
     // checking to see if the user is authenticated

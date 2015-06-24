@@ -31,15 +31,35 @@ angular.module("starter.controllers", [])
   };
 })
 .controller("CardsCtrl", function($scope){
-  var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck"}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
+  var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck", detail: "THE SALINAS VALLEY is in Northern California. It is a long narrow swale between two ranges of mountains, and the Salinas River winds and twists up the center until it falls at last into Monterey Bay.\n\nI remember my childhood names for grasses and secret flowers. I remember where a toad may live and what time the birds awaken in the summer—and what trees and seasons smelled like—how people looked and walked and smelled even. The memory of odors is very rich."}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
   $scope.cards = [];
   $scope.currentCard = cardTypes[0];
 
+  //-------------------------------START DEMO CODE--------------------------------------------//
   $scope.addCard = function(index){
     var newCard = cardTypes[index];
     newCard.id = Math.random();
     $scope.cards.push(angular.extend({}, newCard));
   };
+  //-------------------------------END DEMO CODE--------------------------------------------//
+  //-------------------------------START REAL CODE--------------------------------------------//
+  // $scope.addCard = function(img, name) {
+  //  var newCard = {image: img, title: name};
+  //  newCard.id = Math.random();
+  //  $scope.cards.unshift(angular.extend({}, newCard));
+  // };
+
+  // $scope.addCards = function(count, user) {
+  //   $http.get('http://api.randomuser.me/?results=' + count + "&" + user).then(function(value) {
+  //     angular.forEach(value.data.results, function (v) {
+  //       $scope.addCard(v.user.picture.medium, v.user.email);
+  //     });
+  //   });
+  // };
+
+  // $scope.addCards(10, user);
+
+  //-------------------------------END REAL CODE--------------------------------------------//
 
   for(var i = 0; i < cardTypes.length; i++){
     $scope.addCard(i);

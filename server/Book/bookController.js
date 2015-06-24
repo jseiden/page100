@@ -22,9 +22,8 @@ module.exports = {
  //TODO: build out book methods
 
   postBook: function (req, res){
-    res.send("reached postBook in bookController");
+    res.send("reached postBook in bo okController");
   },
-
 
   getBooks: function(req, res){
     var count = req.query.count || 10;

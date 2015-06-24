@@ -35,8 +35,6 @@ describe("server", function() {
     });
   });
 
-  describe("Obtaining Stack", function(){
-  });
 
 });
 

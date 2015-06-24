@@ -37,7 +37,6 @@ module.exports = {
       Book.find({
         genre: { $in: genres }
       })
-        // .where("genre").in(genres)
         .limit(count)
         .exec(function(err, books){
           if (!books) {

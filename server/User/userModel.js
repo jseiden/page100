@@ -3,9 +3,11 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 var Q = require("q");
 var SALT_WORK_FACTOR = 10;
+var objectId = mongoose.Schema.Types.ObjectId;
+
 
 var UserSchema = new mongoose.Schema({
-  _id: Schema.Types.ObjectId,
+  _id: objectId,
   username: {
     type: String,
     required: true,
@@ -17,7 +19,7 @@ var UserSchema = new mongoose.Schema({
   },
   filterPreferences: [String],
   salt: String,
-  stack: [{ type: Schema.Types.ObjectId, ref: "Book" }]
+  stack: [{ type: objectId, ref: "Book" }]
 });
 
 UserSchema.methods.comparePasswords = function(possiblePw){

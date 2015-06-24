@@ -1,4 +1,5 @@
 "use strict";
+
 var Q = require("q");
 var Book = require("./bookModel.js");
 var User = require("../User/userModel.js");
@@ -15,11 +16,12 @@ var findUserById = function(userId, callback) {
 
 
 
-
-
 module.exports = {
+
+ //TODO: build out book methods
+
   postBook: function (req, res){
-    res.send("reached addBooks in bookController");
+    res.send("reached postBook in bookController");
   },
 
 
@@ -41,6 +43,5 @@ module.exports = {
         });
     });
   }
-
 
 };

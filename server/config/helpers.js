@@ -35,7 +35,9 @@ module.exports = {
   formatBooks: function(obj){
     var resObj = JSON.parse(obj); //this is potentially many books 
     var result =[];
+    //iterate through each result
     resObj.docs.forEach(function(doc){
+      //make sure all desired fields exist 
       if(doc["title_suggest"] && doc["author_name"] && doc["subject"]){
         var newBook = {};
         newBook.title = doc["title_suggest"];

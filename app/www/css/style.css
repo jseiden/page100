@@ -28,9 +28,16 @@ td-card .image {
     /*width: 100%;*/
 }
  
-td-card img {
+td-card .front img {
     height: 390px;
     /*width: 100%;*/
+    border-radius: 6px;
+    /*border: 1px solid black;*/
+}
+
+td-card .back img {
+    height: 390px;
+    width: 100%;
     border-radius: 6px;
     /*border: 1px solid black;*/
 }
@@ -93,4 +100,5 @@ td-card img {
   text-align: right;
   
 }
+
 /*end of card swipe css*/

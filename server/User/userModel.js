@@ -14,10 +14,11 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  _id: Schema.Types.ObjectId,
   filterPreferences: [String],
+  salt: String,
   //TODO: find out how mongoose deals with objects inside objects
-  stack: [{ type: Schema.Types.ObjectId, ref: 'Book' }],
-  salt: String
+  stack: [{ type: Schema.Types.ObjectId, ref: "Book" }]
 });
 
 UserSchema.methods.comparePasswords = function(possiblePw){

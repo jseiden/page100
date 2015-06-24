@@ -17,4 +17,14 @@ module.exports = function (app) {
     // res.sendFile('../../app/www/index.html')
     res.send("reached root");
   });
+
+  app.param("id", userController.getUserById);
+
+  //getting and adding to stack
+  app.get("user/:id/stack", userController.getStack);
+  app.post("user/:id/addbook", userController.addToStack);
+  app.delete("user/:id/removebook", userController.removeFromStack);
+
+
+
 };

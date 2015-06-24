@@ -6,11 +6,11 @@ var User = require("../User/userModel.js");
 //getTenBooks
 //getBookByTitle
 //
-var findUserById = function(username, callback) {
+var findUserById = function(userId, callback) {
   var findUser = Q.nbind(User.findOne, User);
-  findUser({ 'username': username }).then(function(user) {
+  findUser({ _id: userId }).then(function(user) {
     callback(user);
-  })
+  });
 };
 
 
@@ -23,16 +23,15 @@ module.exports = {
   },
 
 
-
   getBooks: function(req, res){
     var count = req.query.count || 10;
-    var username = req.query.user;
+    var userId = req.query.user;
     var findAll = Q.nbind(Book.find, Book);
-    
-    findUserById(username, function(user) {
+
+    findUserById(userId, function(user) {
       var genres = user.filterPreferences;
       findAll({})
-        .where('genre').in(genres)
+        .where("genre").in(genres)
         .limit(count)
         .then(function (books) {
           res.json(books);
@@ -41,8 +40,7 @@ module.exports = {
           next(error);
         });
     });
-
-
-
   }
+
+
 };

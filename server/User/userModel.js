@@ -5,7 +5,6 @@ var Q = require("q");
 var SALT_WORK_FACTOR = 10;
 var autoIncrement = require("mongoose-auto-increment");
 
-
 var connection = mongoose.createConnection("mongodb://user:wemakeawesomeshit@ds051110.mongolab.com:51110/page100");
 autoIncrement.initialize(connection);
 
@@ -68,4 +67,4 @@ UserSchema.pre("save", function(next){
 UserSchema.plugin(autoIncrement.plugin, "User");
 
 
-module.exports = connection.model("users", UserSchema);
+module.exports = mongoose.model("users", UserSchema);

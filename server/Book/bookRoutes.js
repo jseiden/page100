@@ -4,7 +4,10 @@ var bookController = require("./bookController.js");
 
 module.exports = function(app){
 
- app.post("/postbook", bookController.postBook);
- app.get("/getbooks", bookController.getBooks);
 
+app.route("/getBooks")
+  .get(bookController.getBooks);
+
+app.route("/postBook")
+  .post(bookController.postBook);
 };

@@ -22,9 +22,8 @@ module.exports = {
  //TODO: build out book methods
 
   postBook: function (req, res){
-    res.send("reached postBook in bookController");
+    res.send("reached postBook in bo okController");
   },
-
 
   getBooks: function(req, res){
     var count = req.query.count || 10;
@@ -37,7 +36,6 @@ module.exports = {
       Book.find({
         genre: { $in: genres }
       })
-        // .where("genre").in(genres)
         .limit(count)
         .exec(function(err, books){
           if (!books) {

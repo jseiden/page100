@@ -5,7 +5,7 @@ angular.module("starter.services", [])
     var signin = function (user) {
         return $http({
           method: "POST",
-          url: "/app/signin",
+          url: "http://localhost:3000/user",
           data: user
         })
         .then(function (resp) {
@@ -16,10 +16,11 @@ angular.module("starter.services", [])
     var signup = function (user) {
       return $http({
         method: "POST",
-        url: "/app/signup",
+        url: "http://localhost:3000/user",
         data: user
       })
       .then(function (resp) {
+        console.log(resp.data)
         return resp.data.token;
       });
     };
@@ -35,7 +36,7 @@ angular.module("starter.services", [])
     var addToStack = function (book) {
       return $http({
         method: "POST",
-        url: "/api/users",
+        url: "http://localhost:3000/user",
         data: book
       })
       .then(function () {
@@ -46,7 +47,7 @@ angular.module("starter.services", [])
     var getStack = function () {
       return $http({
         method: "GET",
-        url: "/api/users"
+        url: "http://localhost:3000/user"
       })
       .then(function (resp){
         return resp.data;
@@ -56,7 +57,7 @@ angular.module("starter.services", [])
     var removeFromStack = function (book) {
       return $http({
         method: "POST",
-        url: "api/users",
+        url: "http://localhost:3000/user",
         data: book
       })
     };

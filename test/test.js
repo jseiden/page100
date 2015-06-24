@@ -22,8 +22,8 @@ describe("server", function() {
   });
 
   describe("Home routes", function(){
-    it("return 200 status code from '/'' on localhost", function(done){
-      request(server).get("/user/").expect(200, function(err){
+    it("return 200 status code from '/user/0/stack' on localhost", function(done){
+      request(server).get("/user/0/stack").expect(200, function(err){
         console.log("error: ", err);
       }).end(done);
     });

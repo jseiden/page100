@@ -12,8 +12,6 @@ module.exports = {
   getBooks: function(req, res){
     res.send("reached getBooks in bookController");
   },
-
-
   addToStack: function(req, res){
     res.send("reached addToStack in bookController");
   }

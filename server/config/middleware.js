@@ -28,4 +28,5 @@ module.exports = function (app, express) {
 
   require("../User/userRoutes.js")(app, express);
   require("../Book/bookRoutes.js")(app, express);
+  require("../Book/apiRoutes.js")(app, express);
 };

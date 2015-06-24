@@ -8,7 +8,6 @@ angular.module("starter.controllers", [])
   $scope.go = function( path ){
     $location.path( path );
   };
-  
 })
 
 .controller("StackCtrl", function($scope) {

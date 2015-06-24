@@ -1,8 +1,14 @@
 "use strict";
-var apiController = require("./apiController");
+var booksApiController = require("./booksApiController");
 module.exports = function(app){
-  app.get("/api/getByAuthor", apiController.getByAuthor);
-  app.get("/api/getByTitle", apiController.getByTitle);
-  app.get("/api/getByGenre", apiController.getByGenre);
+
+  app.route("/getByAuthor")
+   .get(booksApiController.getByAuthor);
+
+  app.route("/getByTitle")
+   .get(booksApiController.getByTitle);
+
+  app.route("/getByGenre")
+   .get(booksApiController.getByGenre);
 
 };

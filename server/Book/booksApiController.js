@@ -1,17 +1,29 @@
 "use strict";
 
 var request = require("request");
+// in helpers you will find the function that formats the book results
+var helpers = require("./../config/helpers");
 // var path = request("path");
 
 module.exports = {
   //TODO: pass in author, title, etc.
+
+   //TODO put this as an external helper
+  // formatBook: function(obj){
+  //   var resBody = JSON.parse(body);
+  //   // var book = {};
+  //   return resBody;
+  // },
+
   getByAuthor: function(req, res){
     var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=inauthor:";
     var author = "Kurt\ Vonnegut";
     var fullPath = baseUrl.concat(author, "&filter=partial");
     request(fullPath, function(error, response, body){
       if(!error && response.statusCode === 200){
-        res.send(body);
+        // var resBody = JSON.parse(body);
+        var resBody = helpers.formatBook(body);
+        res.send(resBody);
       }
     });
   },

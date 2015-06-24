@@ -19,21 +19,12 @@ module.exports = function (app, express) {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
-<<<<<<< HEAD
 
   app.use("/user", userRouter);
   app.use("/book", bookRouter);
 
-  app.use("./../User", helpers.decode);
-
-  require("../User/userRoutes.js")(userRouter);
-  require("../Book/bookRoutes.js")(bookRouter);
-  require("../Book/apiRoutes.js")(app, express);
-=======
-  app.use("/api/users", userRouter);
-  app.use("/api/books", bookRouter);
+  
   app.use("/booksApi", booksApiRouter);
-
   app.use("./../User", helpers.decode);
 
   //TODO figure out why this format breaks it:
@@ -42,5 +33,5 @@ module.exports = function (app, express) {
   require("./../User/userRoutes.js")(userRouter);
   require("./../Book/bookRoutes.js")(bookRouter);
   require("./../Book/booksApiRoutes.js")(booksApiRouter);
->>>>>>> 2c24c97c1dd9bd6a4f94fa335df008b91f92975f
+
 };

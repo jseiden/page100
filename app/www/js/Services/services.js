@@ -29,4 +29,22 @@ angular.module("starter.services", [])
       signup: signup
     };
 
+  })
+
+  .factory("BookChoices", function($http){
+    var addToStack = function (book) {
+      return $http({
+        method: "POST",
+        url: "/api/users",
+        data: book
+      })
+      .then(function () {
+        console.log("book added to stack");
+      });
+    };
+
+    return {
+      addToStack: addToStack
+    };
+
   });

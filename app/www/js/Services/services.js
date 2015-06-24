@@ -43,8 +43,20 @@ angular.module("starter.services", [])
       });
     };
 
+    var getStack = function () {
+      return $http({
+        method: "GET",
+        url: "/api/users"
+      })
+      .then(function (resp){
+        return resp.data;
+      });
+    };
+
+
     return {
-      addToStack: addToStack
+      addToStack: addToStack,
+      getStack: getStack
     };
 
   });

@@ -32,13 +32,23 @@ module.exports = {
 
 
   //used by bookApiController to format books from googleBooks
-  formatBook: function(obj){
-    var resObj = JSON.parse(obj);
-    var book = {};
-    book.title = resObj.items[0].volumeInfo.title;
-    book.author = resObj.items[0].volumeInfo.authors[0];
-    // book["genre"] = ""
-    return book;
+  formatBooks: function(obj){
+    var resObj = JSON.parse(obj); //this is potentially many books 
+    var result =[];
+    resObj.docs.forEach(function(doc){
+      if(doc["title_suggest"] && doc["author_name"] && doc["subject"]){
+        var newBook = {};
+        newBook.title = doc["title_suggest"];
+        newBook.author = doc["author_name"][0]; 
+        //TODO filter out weird words in subject field 
+        newBook.genre = doc["subject"][1] || doc["subject"][0];  
+        newBook.sample = "sample";
+        newBook.amazonLink = "www.amazon.com/coolBook";
+        result.push(newBook);
+    }
+    })
+    
+    return result;
   },
 
   decode: function (req, res, next) {
@@ -59,9 +69,4 @@ module.exports = {
     }
 
   }
-  // ,
-  // //creates trimmed down json object from google books results
-  // formatBook: function(req, res){
-
-  // }
 };

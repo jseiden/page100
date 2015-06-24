@@ -16,38 +16,39 @@ module.exports = {
   // },
 
   getByAuthor: function(req, res){
-    var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=inauthor:";
-    var author = "Kurt\ Vonnegut";
-    var fullPath = baseUrl.concat(author, "&filter=partial");
+    var author = "dahl";
+    var fullPath = ("http://openlibrary.org/search.json?author=").concat(author);
     request(fullPath, function(error, response, body){
       if(!error && response.statusCode === 200){
-        // var resBody = JSON.parse(body);
-        var resBody = helpers.formatBook(body);
+        var resBody = helpers.formatBooks(body);
         res.send(resBody);
       }
     });
   },
 
-  getByTitle: function(req, res){
-    var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=intitle:";
-    var title = "Of Mice and Men";
-    var fullPath = baseUrl.concat(title.split(" ").join("\\ "), "&filter=partial");
-    // var fullPath = "https://openlibrary.org/api/books?bibkeys=ISBN:9780980200447&jscmd=details&format=json";
-    request(fullPath, function(error, response, body){
-      if(!error && response.statusCode === 200){
-        res.send(JSON.parse(body));
-      }
-    });
-  },
+  // getByTitle: function(req, res){
+  //   // var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=intitle:";
+  //   var title = "Of Mice and Men";
+  //   var fullPath =("http://openlibrary.org/search.json?title=").concat(title.split(" ").join("+"));
+  //   // var fullPath = "https://openlibrary.org/api/books?bibkeys=ISBN:9780980200447&jscmd=details&format=json";
+  //   request(fullPath, function(error, response, body){
+  //     if(!error && response.statusCode === 200){
+  //       var resBody = helpers.formatBooks(body);
+  //       res.send(resBody)
+  //     }
+  //   });
+  // },
 
   getByGenre: function(req, res){
-    var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=subject:";
     var genre = "horror";
-    var fullPath = baseUrl.concat(genre.split(" ").join("\\"), "&filter=partial");
+    var genreConcat = genre.split(" ").join("\\");
+    var fullPath = ("http://openlibrary.org/search.json?subject=").concat(genreConcat);
     request(fullPath, function(error, response, body){
       if(!error && response.statusCode === 200){
-        res.send(JSON.parse(body));
+        var resBody = helpers.formatBooks(body);
+        res.send(resBody);
       }
   });
 }
+
 };

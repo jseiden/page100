@@ -1,9 +1,9 @@
 "use strict";
-
+var mongoose = require("mongoose");
 var request = require("request");
+
 // in helpers you will find the function that formats the book results
 var helpers = require("./../config/helpers");
-// var path = request("path");
 
 module.exports = {
   //TODO: pass in author, title, etc.
@@ -26,6 +26,7 @@ module.exports = {
     });
   },
 
+  //TODO do we want this functionality? it returns one book
   // getByTitle: function(req, res){
   //   // var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=intitle:";
   //   var title = "Of Mice and Men";
@@ -48,7 +49,12 @@ module.exports = {
         var resBody = helpers.formatBooks(body);
         res.send(resBody);
       }
-  });
-}
+    });
+  },
+
+  bulkAddtoDb: function(req, res, searchType, value){
+    
+    console.log("adding stuff to db");
+  }
 
 };

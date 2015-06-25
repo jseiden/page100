@@ -5,7 +5,7 @@ angular.module("starter.services", [])
     var signin = function (user) {
         return $http({
           method: "POST",
-          url: "http://localhost:3000/user",
+          url: "http://localhost:3000/user/signin",
           data: user
         })
         .then(function (resp) {
@@ -16,7 +16,7 @@ angular.module("starter.services", [])
     var signup = function (user) {
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user",
+        url: "http://localhost:3000/user/signup",
         data: user
       })
       .then(function (resp) {
@@ -30,11 +30,11 @@ angular.module("starter.services", [])
       signup: signup
     };
   })
- 
+
   .factory("Account", function(){
     var getUsername = function(){
       return $http({
-        method:"GET", 
+        method: "GET",
         url: "/users"
       })
       .then(function(resp){
@@ -42,23 +42,23 @@ angular.module("starter.services", [])
         return resp.data;
       });
     };
-    
+
     var changeUsername = function(user){
       return $http({
-        method:"PUT", 
+        method: "PUT",
         url: "/users",
         data: user
       }).then(function(resp){
         return resp.data;
       });
     };
-   
-    var changePassword = function(user){
-    };
 
-    var changeEmail = function(user){
-    };
-   
+    // var changePassword = function(user){
+    // };
+
+    // var changeEmail = function(user){
+    // };
+
     return {
       getUsername: getUsername,
       changeUsername: changeUsername,

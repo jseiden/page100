@@ -73,10 +73,11 @@ module.exports = {
     // res.send("reached signin in userController");
     var username = req.body.username;
     var password = req.body.password;
-
+    console.log(req.body);
+    
     //TODO: this following code block seems to produce an error upon sigin request. may be a problem with curl, which is what I used to debug
+    var findUser = Q.nbind(User.findOne, User);
 
-    var findUser = Q.nBind(User.findOne, User);
     findUser({username: username})
       .then(function(user){
         if(!user){

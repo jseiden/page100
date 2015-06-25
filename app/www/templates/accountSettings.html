@@ -1,9 +1,9 @@
 <ion-view view-title="Account Settings">
-  <ion-content ng-controller="AccountCtrl">
+  <ion-content>
     <h1>Account Settings</h1>
-    <tr><td>Username: </td><td><button class="button button-positive">Edit</button></td></tr>
-    <br>
-    <tr><td>Email: </td><td><button class="button button-positive">Edit</button></td></tr>
+    <button class="button button-positive">Edit</button>
+    <div>Username: </div><input type="text" ng-model="accountSettings.username">
+    <div>Email: </div><label class="item item-input"><input type="text" ng-model="accountSettings.email">
     
   </ion-content>
 </ion-view>

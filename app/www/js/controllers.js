@@ -53,7 +53,6 @@ angular.module("starter.controllers", [])
 })
 
 .controller("FiltersCtrl", function($scope) {
-
   $scope.genres = [{title: "fantasy", filter: true},
     {title: "horror", filter: false},
     {title: "history", filter: false}

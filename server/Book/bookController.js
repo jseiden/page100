@@ -22,7 +22,7 @@ module.exports = {
  //TODO: build out book methods
 
   postBook: function (req, res){
-    res.send("reached postBook in bo okController");
+    res.send("reached postBook in books Controller");
   },
 
   getBooks: function(req, res){

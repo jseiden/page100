@@ -29,7 +29,42 @@ angular.module("starter.services", [])
       signin: signin,
       signup: signup
     };
+  })
+ 
+  .factory("Account", function(){
+    var getUsername = function(){
+      return $http({
+        method:"GET", 
+        url: "/users"
+      })
+      .then(function(resp){
+        console.log(resp);
+        return resp.data;
+      });
+    };
+    
+    var changeUsername = function(user){
+      return $http({
+        method:"PUT", 
+        url: "/users",
+        data: user
+      }).then(function(resp){
+        return resp.data;
+      });
+    };
+   
+    var changePassword = function(user){
+    };
 
+    var changeEmail = function(user){
+    };
+   
+    return {
+      getUsername: getUsername,
+      changeUsername: changeUsername,
+      changePassword: changePassword,
+      changeEmail: changeEmail
+    };
   })
 
   .factory("BookChoices", function($http){
@@ -67,5 +102,4 @@ angular.module("starter.services", [])
       getStack: getStack,
       removeFromStack: removeFromStack
     };
-
   });

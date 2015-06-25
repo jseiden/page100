@@ -2,7 +2,7 @@
   "name": "page100",
   "version": "1.0.0",
   "description": "Book matching app",
-  "main": "server/index.js",
+  "main": "server/server.js",
   "repository": "https://github.com/Opportunistic-House-sitter/page100.git",
   "author": "Opportunistic House-sitters",
   "license": "ISC",

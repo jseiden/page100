@@ -20,7 +20,6 @@ angular.module("starter.services", [])
         data: user
       })
       .then(function (resp) {
-        console.log(resp.data);
         return resp.data.token;
       });
     };
@@ -68,10 +67,10 @@ angular.module("starter.services", [])
   })
 
   .factory("BookChoices", function($http){
-    var addToStack = function (book) {
+    var addToStack = function (id, book) {
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user",
+        url: "http://localhost:3000/user/" + id + "/addbook",
         data: book
       })
       .then(function () {
@@ -79,20 +78,20 @@ angular.module("starter.services", [])
       });
     };
 
-    var getStack = function () {
+    var getStack = function (id) {
       return $http({
         method: "GET",
-        url: "http://localhost:3000/user"
+        url: "http://localhost:3000/user/" + id + "/stack"
       })
       .then(function (resp){
         return resp.data;
       });
     };
 
-    var removeFromStack = function (book) {
+    var removeFromStack = function (id, book) {
       return $http({
-        method: "POST",
-        url: "http://localhost:3000/user",
+        method: "DELETE",
+        url: "http://localhost:3000/user/" + id + "/removebook",
         data: book
       });
     };
@@ -102,4 +101,18 @@ angular.module("starter.services", [])
       getStack: getStack,
       removeFromStack: removeFromStack
     };
-  });
+  })
+
+  .factory("StackServices", function (){
+    var stack = { val: null };
+
+    return {
+      getProperty: function() {
+        return stack;
+      },
+
+      setProperty: function(value) {
+        stack.val = value;
+      }
+    }
+  })

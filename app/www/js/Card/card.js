@@ -2,14 +2,15 @@
 
 angular.module("starter.cards", [])
 
-.controller("CardsCtrl", function($scope, BookChoices){
+.controller("CardsCtrl", function($scope, BookChoices, StackServices){
   var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck"}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
   $scope.cards = [];
   $scope.currentCard = cardTypes[0];
+  $scope.userId = 1;
 
   $scope.addCard = function(index){
     var newCard = cardTypes[index];
-    newCard.id = Math.random();
+    newCard.id = Math.floor(Math.random() * 4); // TO DO: Update according to real book data. 
     $scope.cards.push(angular.extend({}, newCard));
   };
 
@@ -24,7 +25,7 @@ angular.module("starter.cards", [])
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
     // TO DO: Check data passed to addToStack, e.g. index or entire book data
-    BookChoices.addToStack(index);
+    BookChoices.addToStack($scope.userId, cardTypes[index]);
   };
 
   $scope.cardDestroyed = function(index) {

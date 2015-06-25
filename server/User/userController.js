@@ -15,6 +15,7 @@ module.exports = {
     var findUser = Q.nbind(User.findOne, User);
     findUser({_id: id})
       .then(function (user) {
+        console.log(user);
         if (user) {
           req.user = user;
           next();
@@ -28,7 +29,7 @@ module.exports = {
   },
 
   addToStack: function(req, res) {
-    req.user.stack.push(req.body._id);
+    req.user.stack.push(req.body.id);
     req.user.save(function(err, user) {
       if (err) {
         console.log("error saving user stack / adding book");
@@ -39,7 +40,7 @@ module.exports = {
   },
 
   removeFromStack: function(req, res) {
-    req.user.stack.splice(req.user.stack.indexOf(req.body._id), 1);
+    req.user.stack.splice(req.user.stack.indexOf(req.body.id), 1);
     req.user.save(function(err, user) {
       if (err) {
         console.log("error saving user stack / removing book");
@@ -54,12 +55,12 @@ module.exports = {
     //.populate() makes stack populate array of book objects based on IDs in the user's stack array.
     //it does this by accessing the book document store and matching IDs.
     //this is possible because we reference books in the user schema.
-    console.log(req.user.stack);
     var populate = Q.nbind(req.user.populate, req.user);
 
     populate("stack")
       .then(function(books) {
         if (books) {
+          console.log("Server getstack", books);
           res.json(books);
         } else {
           console.log("cannot find stack");

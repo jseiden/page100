@@ -57,7 +57,6 @@ module.exports = {
     console.log(req.user.stack);
     var populate = Q.nbind(req.user.populate, req.user);
 
-
     populate("stack")
       .then(function(books) {
         if (books) {
@@ -87,7 +86,7 @@ module.exports = {
             .then(function(foundUser){
               if (foundUser){
                 var token = jwt.encode(user, "secret");
-                res.json({token: token});
+                res.json({token: token, data: user});
               } else{
                 return next(new Error("No user"));
               }
@@ -97,7 +96,6 @@ module.exports = {
       .fail(function(error){
         next(error);
       });
-      res.send("reached signin in userController");
   },
 
   signup: function(req, res, next){
@@ -161,5 +159,38 @@ module.exports = {
           next(error);
         });
     }
+  },
+
+  changeFilterPreferences: function(req, res){
+    req.user.filterpreferences = req.body;
+    req.user.save(function(err, user) {
+          if (err) {
+            console.log("error saving new filterpreferences");
+          } else {
+            res.json(user);
+          }
+        });
+  },
+  changeEmail: function(req, res){
+    req.user.email = req.body;
+    req.user.save(function(err, user) {
+          if (err) {
+            console.log("error saving user email");
+          } else {
+            res.json(user);
+          }
+        });
+  },
+  changeUsername: function(req, res){
+    req.user.username = req.body;
+    req.user.save(function(err, user) {
+          if (err) {
+            console.log("error saving user name");
+          } else {
+            res.json(user);
+          }
+        });
   }
+
+
 };

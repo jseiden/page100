@@ -8,10 +8,10 @@ angular.module("starter.auth", [])
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem("com.starter", token);
-        $location.path("/stack");
+        $location.path("/app/main");
       })
       .catch(function (error) {
-        console.error(error);
+        console.log(error);
       });
   };
 
@@ -22,7 +22,7 @@ angular.module("starter.auth", [])
         $location.path("/stack");
       })
       .catch(function (error) {
-        console.error(error);
+        console.log(error);
       });
   };
 

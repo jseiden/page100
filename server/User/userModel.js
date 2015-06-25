@@ -3,11 +3,13 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 var Q = require("q");
 var SALT_WORK_FACTOR = 10;
-var objectId = mongoose.Schema.Types.ObjectId;
+var autoIncrement = require("mongoose-auto-increment");
 
+var connection = mongoose.createConnection("mongodb://user:wemakeawesomeshit@ds051110.mongolab.com:51110/page100");
+autoIncrement.initialize(connection);
 
 var UserSchema = new mongoose.Schema({
-  _id: objectId,
+  email: String,
   username: {
     type: String,
     required: true,
@@ -19,13 +21,13 @@ var UserSchema = new mongoose.Schema({
   },
   filterPreferences: [String],
   salt: String,
-  stack: [{ type: objectId, ref: "Book" }]
+  stack: [{ type: Number, ref: "Book" }]
 });
 
 UserSchema.methods.comparePasswords = function(possiblePw){
   var defer = Q.defer();
   var savedPw = this.password;
-  brcypt.compare(possiblePw, savedPw, function(err, match){
+  bcrypt.compare(possiblePw, savedPw, function(err, match){
     if(err){
       defer.reject(err);
     } else {
@@ -44,7 +46,7 @@ UserSchema.pre("save", function(next){
   }
 
   // hash pw and salt
-  brcypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
     if (err) {
       return next(err);
     }
@@ -61,5 +63,8 @@ UserSchema.pre("save", function(next){
     });
   });
 });
+
+UserSchema.plugin(autoIncrement.plugin, "User");
+
 
 module.exports = mongoose.model("users", UserSchema);

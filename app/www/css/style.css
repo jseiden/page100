@@ -27,6 +27,10 @@ td-card .image {
     left:23px;
     /*width: 100%;*/
 }
+
+td-card pre{
+  font-family: Calisto MT;
+}
  
 td-card .front img {
     height: 390px;
@@ -35,9 +39,10 @@ td-card .front img {
     /*border: 1px solid black;*/
 }
 
-td-card .back img {
+td-card .back pre {
     height: 390px;
-    width: 100%;
+    width: 250px;
+    /*text-align: center;*/
     border-radius: 6px;
     /*border: 1px solid black;*/
 }
@@ -91,14 +96,23 @@ td-card .back img {
 }
 
 /*info styling*/
-.item-avatar{
+.item-thumbnail-left{
   position: absolute;
   display: block;
   bottom: 5%;
   right: 38.5%;
   width:300px;
-  text-align: right;
-  
+  text-align: center;
+}
+
+.info {
+  position: absolute;
+  top: 25%;
+  right:18%;
+}
+
+.item-thumbnail-left img{
+  width:80%;
 }
 
 /*end of card swipe css*/

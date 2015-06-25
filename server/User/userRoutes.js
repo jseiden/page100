@@ -23,10 +23,10 @@ module.exports = function (app) {
   app.param("id", userController.getUserById);
 
   //getting and adding to stack
-  app.get("user/:id/stack", userController.getStack);
-  app.post("user/:id/addbook", userController.addToStack);
-  app.delete("user/:id/removebook", userController.removeFromStack);
-
-
-
+  app.post("/:id/filterpreferences", userController.changeFilterPreferences);
+  app.post("/:id/email", userController.changeEmail);
+  app.post("/:id/username", userController.changeUsername);
+  app.get("/:id/stack", userController.getStack);
+  app.post("/:id/addbook", userController.addToStack);
+  app.delete("/:id/removebook", userController.removeFromStack);
 };

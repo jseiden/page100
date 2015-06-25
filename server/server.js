@@ -1,10 +1,16 @@
 "use strict";
 var express = require("express");
 var mongoose = require("mongoose");
+var cors = require("cors");
 // var testStubs = require("./testposts.js");
+
 
 //instance of express
 var app = express();
+
+//use CORS module
+app.use(cors());
+
 
 mongoose.connect("mongodb://user:wemakeawesomeshit@ds051110.mongolab.com:51110/page100");
 

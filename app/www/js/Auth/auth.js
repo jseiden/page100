@@ -5,6 +5,7 @@ angular.module("starter.auth", [])
   $scope.user = {};
 
   $scope.signin = function () {
+    // $rootScope.currentUser = $scope.user;
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem("com.starter", token);
@@ -16,6 +17,7 @@ angular.module("starter.auth", [])
   };
 
   $scope.signup = function () {
+    // $rootScope.currentUser = $scope.user;
     Auth.signup($scope.user)
       .then(function (token) {
         $window.localStorage.setItem("com.starter", token);
@@ -28,6 +30,7 @@ angular.module("starter.auth", [])
 
   $scope.signout = function () {
     $window.localStorage.removeItem("com.starter");
+    // $rootScope.currentUser = "undefined";
     $location.path("/login");
   };
 

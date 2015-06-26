@@ -40,7 +40,8 @@
     "q": "^1.4.1",
     "request": "^2.58.0",
     "sinon": "^1.15.3",
-    "supertest": "^1.0.1"
+    "supertest": "^1.0.1",
+    "ui-router": "0.0.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

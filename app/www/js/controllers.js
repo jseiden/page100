@@ -11,30 +11,36 @@ angular.module("starter.controllers", [])
 })
 
 .controller("StackCtrl", function($scope, BookChoices) {
-
+  $scope.userId = 1;
+  $scope.stack = [];
   // TO DO: connect to user specific stack.
-  $scope.getStack = function() {
-  //   BookChoices.getStack()
-  //     .then(function(stack){
-  //       $scope.stack = stack;
-  //     });
+  // $scope.getStack = function(){
+  //   $scope.stack = StackServices.getProperty();
+  // };
+
+  $scope.getStack = function( id ) {
+    BookChoices.getStack(id)
+      .then(function(data){
+        $scope.stack = data.stack;
+      });
   };
 
-  $scope.removeFromStack = function( index ){
-    BookChoices.removeFromStack(index);
-    $scope.getStack();
+  $scope.removeFromStack = function( id, index ){
+    BookChoices.removeFromStack(id, index);
+    $scope.getStack($scope.userId);
   };
 
+  $scope.getStack($scope.userId);
 
   // Test Data
-  $scope.stack = [
-    {img: "cover", title: "100 Years of Solitude", id: 1 },
-    {img: "cover", title: "Johnny Got His Gun", id: 2 },
-    {img: "cover", title: "East of Eden", id: 3 },
-    {img: "cover", title: "Zero to One", id: 4 },
-    {img: "cover", title: "Invisible Man", id: 5 },
-    {img: "cover", title: "Romeo and Juliet", id: 6 }
-  ];
+  // $scope.stack = [
+  //   {img: "cover", title: "100 Years of Solitude", id: 1 },
+  //   {img: "cover", title: "Johnny Got His Gun", id: 2 },
+  //   {img: "cover", title: "East of Eden", id: 3 },
+  //   {img: "cover", title: "Zero to One", id: 4 },
+  //   {img: "cover", title: "Invisible Man", id: 5 },
+  //   {img: "cover", title: "Romeo and Juliet", id: 6 }
+  // ];
 })
 
 .directive("noScroll", function(){
@@ -47,6 +53,7 @@ angular.module("starter.controllers", [])
     }
   };
 })
+
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);
   $scope.indvBook = $stateParams;

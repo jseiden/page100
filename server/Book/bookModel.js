@@ -10,6 +10,7 @@ var BookSchema = new mongoose.Schema({
   title: String,
   author: String,
   genre: String,
+  image: String,
   sample: String,
   amazonLink: String
 });

@@ -20,7 +20,6 @@ angular.module("starter.services", [])
         data: user
       })
       .then(function (resp) {
-        console.log(resp.data);
         return resp.data.token;
       });
     };
@@ -68,38 +67,61 @@ angular.module("starter.services", [])
   })
 
   .factory("BookChoices", function($http){
-    var addToStack = function (book) {
+    var getBooks = function() {
       return $http({
-        method: "POST",
-        url: "http://localhost:3000/user",
-        data: book
+        method: "GET",
+        url: "http://localhost:3000/book/getBooks"
       })
-      .then(function () {
-        console.log("book added to stack");
+      .then(function (resp){
+        console.log("Books", resp);
+        return resp.data;
       });
     };
 
-    var getStack = function () {
+    var addToStack = function (id, bookId) {
+      return $http({
+        method: "POST",
+        url: "http://localhost:3000/user/" + id + "/addbook",
+        data: bookId
+      });
+    };
+
+    var getStack = function (id) {
       return $http({
         method: "GET",
-        url: "http://localhost:3000/user"
+        url: "http://localhost:3000/user/" + id + "/stack"
       })
       .then(function (resp){
         return resp.data;
       });
     };
 
-    var removeFromStack = function (book) {
+    var removeFromStack = function (id, bookId) {
       return $http({
-        method: "POST",
-        url: "http://localhost:3000/user",
-        data: book
+        method: "DELETE",
+        url: "http://localhost:3000/user/" + id + "/removebook",
+        data: bookId
       });
     };
 
     return {
+      getBooks: getBooks,
       addToStack: addToStack,
       getStack: getStack,
       removeFromStack: removeFromStack
     };
   });
+
+  // .factory("StackServices", function (){
+  //   var stack = { val: null };
+
+  //   return {
+  //     getProperty: function() {
+  //       return stack;
+  //     },
+
+  //     setProperty: function(value) {
+  //       stack.val = value;
+  //     }
+  //   };
+  // });

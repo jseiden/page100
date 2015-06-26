@@ -42,12 +42,12 @@ module.exports = {
     //iterate through each result
     resObj.docs.forEach(function(doc){
       //make sure all desired fields exist
-      if(doc.isbn && doc["title_suggest"] && doc["author_name"] && doc.subject){
+      if(doc.isbn && doc.title_suggest && doc.author_name && doc.subject){
         var newBook = {};
         //using isbn internally but not writing to object
         var isbn = doc.isbn[1] || doc.isbn[0];
-        newBook.title = doc["title_suggest"];
-        newBook.author = doc["author_name"][0];
+        newBook.title = doc.title_suggest;
+        newBook.author = doc.author_name[0];
         //TODO filter out weird words in subject field
         newBook.genre = doc.subject[1] || doc.subject[0];
         newBook.sample = that.getBookText();
@@ -80,6 +80,7 @@ module.exports = {
 
   getBookText: function(){
     var baseUrl = "http://ia700401.us.archive.org";
+    console.log(baseUrl);
     return "sample";
   },
 

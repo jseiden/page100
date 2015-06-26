@@ -1,5 +1,5 @@
 "use strict";
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 var request = require("request");
 
 // in helpers you will find the function that formats the book results
@@ -44,9 +44,9 @@ module.exports = {
       }
     });
   },
- 
 
   bulkAddtoDb: function(req, res, searchType, value){
+    console.log(req, res, searchType, value);
     console.log("adding stuff to db");
   }
 

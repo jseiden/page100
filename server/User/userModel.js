@@ -21,6 +21,7 @@ var UserSchema = new mongoose.Schema({
   },
   filterPreferences: [String],
   salt: String,
+  bookPosition: {type: Number, default: 0},
   stack: [{ type: Number, ref: "Book" }]
 });
 

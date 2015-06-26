@@ -19,8 +19,6 @@ var findUserById = function(userId, callback) {
 
 module.exports = {
 
- //TODO: build out book methods
-
   postBook: function (req, res){
     res.send("reached postBook in books Controller");
   },
@@ -31,10 +29,9 @@ module.exports = {
     //TODO: figure out why only first query in url string is being read.
 
     findUserById(userId, function(user) {
-      var genres = user.filterPreferences;
-      console.log(genres);
       Book.find({
-        genre: { $in: genres }
+        genre: { $in: user.filterPreferences },
+        _id: { $gt: user.bookPosition }
       })
         .limit(count)
         .exec(function(err, books){
@@ -42,12 +39,19 @@ module.exports = {
             console.log("no books");
           }
           if (err) {
-            console.log(error);
+            console.log(err);
           } else {
-            console.log(books);
-            res.json(books);
+            //assign users position to id of last book in collection
+            user.bookPosition = books[books.length - 1]._id;
+            user.save(function(error) {
+              if (err) {
+                console.log(error);
+              } else {
+              console.log(books);
+              res.json(books);
+              }
+            });
           }
-
         });
     });
   }

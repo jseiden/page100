@@ -31,7 +31,7 @@ module.exports = {
     findUserById(userId, function(user) {
       Book.find({
         genre: { $in: user.filterPreferences },
-        _id: { $gt: user.bookPosition }
+        _id: { $gt: user.bookPosition, $nin: user.stack } //only pull books past the user's position, and not in the user's stack already
       })
         .limit(count)
         .exec(function(err, books){

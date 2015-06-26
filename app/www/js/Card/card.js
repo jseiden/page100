@@ -21,7 +21,7 @@ angular.module("starter.cards", [])
   $scope.addCard = function(index){
     var newCard = cardTypes[index];
     newCard.id = Math.floor(Math.random() * 5);
-    // cardTypes[index]._id; 
+    // cardTypes[index]._id;
     $scope.cards.push(angular.extend({}, newCard));
   };
 

@@ -6,12 +6,12 @@
 // the 2nd parameter is an array of "requires"
 // "starter.controllers" is found in controllers.js
 angular.module("starter", [
-  "ionic", 
-  "starter.cards", 
-  "starter.auth", 
-  "starter.services", 
-  "starter.controllers", 
-  "ionic.service.deploy", 
+  "ionic",
+  "starter.cards",
+  "starter.auth",
+  "starter.services",
+  "starter.controllers",
+  "ionic.service.deploy",
   "ionic.contrib.ui.tinderCards",
   "ui.router"])
 
@@ -50,7 +50,7 @@ angular.module("starter", [
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
-    controller: "AppCtrl",
+    controller: "AppCtrl"
   })
 
   .state("signin", { // contains signin
@@ -71,7 +71,7 @@ angular.module("starter", [
      "menuContent": {
         templateUrl: "templates/main.html"
       }
-    },
+    }
     // resolve: {
     //   authenticated: authenticated
     // }
@@ -84,7 +84,7 @@ angular.module("starter", [
         templateUrl: "templates/filters.html",
         controller: "FiltersCtrl"
       }
-    },
+    }
     // resolve: {
     //   authenticated: authenticated
     // }
@@ -96,7 +96,7 @@ angular.module("starter", [
       "menuContent": {
         templateUrl: "templates/accountSettings.html"
       }
-    },
+    }
     // resolve: {
     //   authenticated: authenticated
     // }
@@ -108,7 +108,7 @@ angular.module("starter", [
           templateUrl: "templates/stack.html",
           controller: "StackCtrl"
         }
-      },
+      }
       // resolve: {
       //   authenticated: authenticated
       // }
@@ -129,7 +129,7 @@ angular.module("starter", [
 
 })
 
-.constant('SERVER', {
+.constant("SERVER", {
   // local server
   url: "http://localhost:3000"
 
@@ -178,9 +178,8 @@ angular.module("starter", [
 
   $rootScope.$on("stateChangeError", function (){
     $state.go("signin");
-  })
+  });
 });
 
 //   });
 // });
-

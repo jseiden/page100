@@ -6,14 +6,7 @@ var request = require("request");
 var helpers = require("./../config/helpers");
 
 module.exports = {
-  //TODO: pass in author, title, etc.
-
-   //TODO put this as an external helper
-  // formatBook: function(obj){
-  //   var resBody = JSON.parse(body);
-  //   // var book = {};
-  //   return resBody;
-  // },
+  //TODO: pass in author, title, instead of hard coding?
 
   getByAuthor: function(req, res){
     var author = "dahl";
@@ -41,7 +34,7 @@ module.exports = {
   // },
 
   getByGenre: function(req, res){
-    var genre = "horror";
+    var genre = "mystery";
     var genreConcat = genre.split(" ").join("\\");
     var fullPath = ("http://openlibrary.org/search.json?subject=").concat(genreConcat);
     request(fullPath, function(error, response, body){
@@ -51,9 +44,9 @@ module.exports = {
       }
     });
   },
+ 
 
   bulkAddtoDb: function(req, res, searchType, value){
-    
     console.log("adding stuff to db");
   }
 

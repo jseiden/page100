@@ -1,5 +1,10 @@
-<ion-view>
-  <ion-content ng-controller='AuthCtrl'>
+<ion-view view-title="Page100" hide-nav-bar="true" class="splash-page" ng-controller="AuthCtrl">
+  <ion-content scroll="false">
+
+  <div class="padding logo">
+      <h1>Page100</h1>
+  </div>
+
     <form ng-submit="signin()">
       <div class="list">
         <label class="item item-input">
@@ -15,6 +20,7 @@
         </label>
       </div>
     </form>
-    <p> Don't have an account? <a href = '#/app/signup'>Sign Up Here</a></p>
+    <p> Don't have an account? <a href = '#/signup'>Sign Up Here</a></p>
+
   </ion-content>
 </ion-view>

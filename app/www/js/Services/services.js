@@ -1,11 +1,11 @@
 "use strict";
 angular.module("starter.services", [])
 
-  .factory("Auth", function($http){
+  .factory("Auth", function($http, SERVER){
     var signin = function (user) {
         return $http({
           method: "POST",
-          url: "http://localhost:3000/user/signin",
+          url: SERVER.url + "/user/signin",
           data: user
         })
         .then(function (resp) {
@@ -16,7 +16,7 @@ angular.module("starter.services", [])
     var signup = function (user) {
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user/signup",
+        url: SERVER.url + "/user/signup",
         data: user
       })
       .then(function (resp) {
@@ -66,11 +66,11 @@ angular.module("starter.services", [])
     };
   })
 
-  .factory("BookChoices", function($http){
+  .factory("BookChoices", function($http, SERVER){
     var getBooks = function() {
       return $http({
         method: "GET",
-        url: "http://localhost:3000/book/getBooks"
+        url: SERVER.url + "/book/getBooks"
       })
       .then(function (resp){
         console.log("Books", resp);
@@ -81,7 +81,7 @@ angular.module("starter.services", [])
     var addToStack = function (id, bookId) {
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user/" + id + "/addbook",
+        url: SERVER.url + "/user/" + id + "/addbook",
         data: bookId
       });
     };
@@ -89,7 +89,7 @@ angular.module("starter.services", [])
     var getStack = function (id) {
       return $http({
         method: "GET",
-        url: "http://localhost:3000/user/" + id + "/stack"
+        url: SERVER.url + "/user/" + id + "/stack"
       })
       .then(function (resp){
         return resp.data;
@@ -99,7 +99,7 @@ angular.module("starter.services", [])
     var removeFromStack = function (id, bookId) {
       return $http({
         method: "DELETE",
-        url: "http://localhost:3000/user/" + id + "/removebook",
+        url: SERVER.url + "/user/" + id + "/removebook",
         data: bookId
       });
     };
@@ -112,16 +112,3 @@ angular.module("starter.services", [])
     };
   });
 
-  // .factory("StackServices", function (){
-  //   var stack = { val: null };
-
-  //   return {
-  //     getProperty: function() {
-  //       return stack;
-  //     },
-
-  //     setProperty: function(value) {
-  //       stack.val = value;
-  //     }
-  //   };
-  // });

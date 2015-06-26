@@ -67,14 +67,22 @@ angular.module("starter.services", [])
   })
 
   .factory("BookChoices", function($http){
-    var addToStack = function (id, book) {
+    var getBooks = function() {
+      return $http({
+        method: "GET",
+        url: "http://localhost:3000/book/getBooks"
+      })
+      .then(function (resp){
+        console.log("Books", resp);
+        return resp.data;
+      });
+    };
+
+    var addToStack = function (id, bookId) {
       return $http({
         method: "POST",
         url: "http://localhost:3000/user/" + id + "/addbook",
-        data: book
-      })
-      .then(function () {
-        console.log("book added to stack");
+        data: bookId
       });
     };
 
@@ -88,31 +96,32 @@ angular.module("starter.services", [])
       });
     };
 
-    var removeFromStack = function (id, book) {
+    var removeFromStack = function (id, bookId) {
       return $http({
         method: "DELETE",
         url: "http://localhost:3000/user/" + id + "/removebook",
-        data: book
+        data: bookId
       });
     };
 
     return {
+      getBooks: getBooks,
       addToStack: addToStack,
       getStack: getStack,
       removeFromStack: removeFromStack
     };
-  })
+  });
 
-  .factory("StackServices", function (){
-    var stack = { val: null };
+  // .factory("StackServices", function (){
+  //   var stack = { val: null };
 
-    return {
-      getProperty: function() {
-        return stack;
-      },
+  //   return {
+  //     getProperty: function() {
+  //       return stack;
+  //     },
 
-      setProperty: function(value) {
-        stack.val = value;
-      }
-    }
-  })
+  //     setProperty: function(value) {
+  //       stack.val = value;
+  //     }
+  //   };
+  // });

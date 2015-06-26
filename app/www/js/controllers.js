@@ -10,7 +10,7 @@ angular.module("starter.controllers", [])
   };
 })
 
-.controller("StackCtrl", function($scope, BookChoices, StackServices) {
+.controller("StackCtrl", function($scope, BookChoices) {
   $scope.userId = 1;
   $scope.stack = [];
   // TO DO: connect to user specific stack.
@@ -19,18 +19,18 @@ angular.module("starter.controllers", [])
   // };
 
   $scope.getStack = function( id ) {
-    BookChoices.getStack($scope.userId)
+    BookChoices.getStack(id)
       .then(function(data){
         $scope.stack = data.stack;
       });
   };
 
   $scope.removeFromStack = function( id, index ){
-    BookChoices.removeFromStack($scope.userId, index);
+    BookChoices.removeFromStack(id, index);
     $scope.getStack($scope.userId);
   };
 
-  $scope.getStack();
+  $scope.getStack($scope.userId);
 
   // Test Data
   // $scope.stack = [

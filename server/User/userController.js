@@ -29,7 +29,7 @@ module.exports = {
   },
 
   addToStack: function(req, res) {
-    req.user.stack.push(req.body.id);
+    req.user.stack.push(req.body._id);
     req.user.save(function(err, user) {
       if (err) {
         console.log("error saving user stack / adding book");
@@ -40,7 +40,7 @@ module.exports = {
   },
 
   removeFromStack: function(req, res) {
-    req.user.stack.splice(req.user.stack.indexOf(req.body.id), 1);
+    req.user.stack.splice(req.user.stack.indexOf(req.body._id), 1);
     req.user.save(function(err, user) {
       if (err) {
         console.log("error saving user stack / removing book");
@@ -75,7 +75,6 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
     console.log(req.body);
-    
     //TODO: this following code block seems to produce an error upon sigin request. may be a problem with curl, which is what I used to debug
     var findUser = Q.nbind(User.findOne, User);
 

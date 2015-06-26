@@ -7,9 +7,6 @@ var jwt = require("jwt-simple");
 
 
 module.exports = {
-  //this posts user 'demoname' to the users object  TODO: set up generic user obj template, TODO: input name dynamically
-  // postUser: function(req, res){
-
 
   getUserById: function (req, res, next, id) {
     var findUser = Q.nbind(User.findOne, User);
@@ -164,6 +161,8 @@ module.exports = {
 
   changeFilterPreferences: function(req, res){
     req.user.filterpreferences = req.body;
+    //reset user's place in book collection
+    req.user.bookPosition = 0;
     req.user.save(function(err, user) {
           if (err) {
             console.log("error saving new filterpreferences");

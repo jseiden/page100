@@ -65,7 +65,6 @@ angular.module("starter.controllers", [])
     {title: "horror", filter: false},
     {title: "history", filter: false}
   ];
-  
   $scope.changeFilter = function(){
        filterChoices.changeFilter(userId, $scope.genres.selected);
     };

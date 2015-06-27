@@ -9,7 +9,7 @@ angular.module("starter.services", [])
           data: user
         })
         .then(function (resp) {
-          return resp.data.token;
+          return resp.data;
         });
       };
 
@@ -20,13 +20,21 @@ angular.module("starter.services", [])
         data: user
       })
       .then(function (resp) {
-        return resp.data.token;
+        return resp.data;
       });
     };
+
+    // var refreshUser = function (){
+    //   return $http({
+    //     method: "GET",
+    //     url: SERVER.url + "user/refresh"
+    //   })
+    // }
 
     return {
       signin: signin,
       signup: signup
+      // refreshUser: refreshUser
     };
   })
 

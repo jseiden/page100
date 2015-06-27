@@ -2,8 +2,8 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="book in stack">
-      	<img ng-src="{{ book.image }}">
-      	<div>
+      	<img class="bookCover" ng-src="{{ book.image }}">
+      	<div class="stackInfo">
       		<h2>{{ book.title }}</h2>
       		<p>{{ book.author }}</p>
       		<span ng-click="removeFromStack(userId, $index)" class="button button-icon ion-minus-circled"></span>

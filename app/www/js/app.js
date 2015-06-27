@@ -15,7 +15,7 @@ angular.module("starter", [
   "ionic.contrib.ui.tinderCards",
   "ui.router"])
 
-.run(function($ionicPlatform) {
+.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -29,7 +29,7 @@ angular.module("starter", [
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", function ($stateProvider, $urlRouterProvider, $httpProvider) {
   // var authenticated = [ "$q", "Auth", function ($q, Auth){
   //   var deferred = $q.defer();
   //   Auth.isAuth()
@@ -42,71 +42,42 @@ angular.module("starter", [
   //     });
   //     return deferred.promise;
   // }];
-
+  $urlRouterProvider.otherwise("/signin");
+  $httpProvider.interceptors.push("AttachTokens");
   $stateProvider
-
-
-  .state("app", {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: "AppCtrl"
-  })
-
-  .state("signin", { // contains signin
-    url: "/signin",
-    templateUrl: "templates/signin.html",
-    controller: "AuthCtrl"
-  })
-
-  .state("signup", {
-    url: "/signup",
-    templateUrl: "templates/signup.html",
-    controller: "AuthCtrl"
-  })
-
-  .state("app.main", {
-    url: "/main",
-    views: {
-     "menuContent": {
-        templateUrl: "templates/main.html"
+    .state("app", {
+      url: "/app",
+      abstract: true,
+      templateUrl: "templates/menu.html",
+      controller: "AppCtrl",
+      data: {
+        requireLogin: true
       }
-    }
-    // resolve: {
-    //   authenticated: authenticated
-    // }
-  })
+    })
 
-  .state("app.filters", {
-    url: "/filters",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/filters.html",
-        controller: "FiltersCtrl"
+    .state("signin", { // contains signin
+      url: "/signin",
+      templateUrl: "templates/signin.html",
+      controller: "AuthCtrl",
+      data: {
+        requireLogin: false
       }
-    }
-    // resolve: {
-    //   authenticated: authenticated
-    // }
-  })
+    })
 
-  .state("app.accountSettings", {
-    url: "/accountSettings",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/accountSettings.html"
+    .state("signup", {
+      url: "/signup",
+      templateUrl: "templates/signup.html",
+      controller: "AuthCtrl",
+      data: {
+        requireLogin: false
       }
-    }
-    // resolve: {
-    //   authenticated: authenticated
-    // }
-  })
-    .state("app.stack", {
-      url: "/stack",
+    })
+
+    .state("app.main", {
+      url: "/main",
       views: {
-        "menuContent": {
-          templateUrl: "templates/stack.html",
-          controller: "StackCtrl"
+       "menuContent": {
+          templateUrl: "templates/main.html"
         }
       }
       // resolve: {
@@ -114,20 +85,53 @@ angular.module("starter", [
       // }
     })
 
-  .state("app.book", {
-    url: "/stack/:bookId",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/indvBook.html",
-        controller: "IndvBookCtrl"
+    .state("app.filters", {
+      url: "/filters",
+      views: {
+        "menuContent": {
+          templateUrl: "templates/filters.html",
+          controller: "FiltersCtrl"
+        }
       }
-    }
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise("/signin");
-  $httpProvider.interceptors.push("AttachTokens");
+      // resolve: {
+      //   authenticated: authenticated
+      // }
+    })
 
-})
+    .state("app.accountSettings", {
+      url: "/accountSettings",
+      views: {
+        "menuContent": {
+          templateUrl: "templates/accountSettings.html"
+        }
+      }
+      // resolve: {
+      //   authenticated: authenticated
+      // }
+    })
+      .state("app.stack", {
+        url: "/stack",
+        views: {
+          "menuContent": {
+            templateUrl: "templates/stack.html",
+            controller: "StackCtrl"
+          }
+        }
+        // resolve: {
+        //   authenticated: authenticated
+        // }
+      })
+
+    .state("app.book", {
+      url: "/stack/:bookId",
+      views: {
+        "menuContent": {
+          templateUrl: "templates/indvBook.html",
+          controller: "IndvBookCtrl"
+        }
+      }
+    });
+}])
 
 .constant("SERVER", {
   // local server
@@ -155,7 +159,7 @@ angular.module("starter", [
   return attach;
 })
 
-.run(function ($rootScope, $location, Auth) {
+.run(["$rootScope", "$state", function ($rootScope, $state) {
 //   // here inside the run phase of angular, our services and controllers
 //   // have just been registered and our app is ready
 //   // however, we want to make sure the user is authorized
@@ -163,12 +167,19 @@ angular.module("starter", [
 //   // when it does change routes, we then look for the token in localstorage
 //   // and send that token to the server to see if it is a real user or hasn't expired
 //   // if it's not valid, we then redirect back to signin/signup
-  // $rootScope.$on("$stateChangeStart", function (event, toState, toParams) {
-  //   var requireLogin = toState.data.requireLogin;
-  //     if(requireLogin && typeof $rootScope.currentUser === "undefined"){
-  //       event.preventDefault();
-  //       $state.go("app.signin");
-  //     }
+  $rootScope.$on("$stateChangeStart", function (event, toState) {
+    var requireLogin = toState.data.requireLogin;
+      if(requireLogin && !$rootScope.currentUser){
+
+        // if(localStorage.getItem("com.starter")) {
+        //   Auth.refreshUser(function () { // Inject Auth when this is used
+        //     $state.go(toState);
+        //   });
+        // } else {
+          event.preventDefault();
+          console.log("User must be logged in to view this page");
+          $state.go("signin");
+        }
 
   // $rootScope.$on("$routeChangeStart", function(evt, next, current){
   //   if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
@@ -176,10 +187,10 @@ angular.module("starter", [
   //   }
   // });
 
-  $rootScope.$on("stateChangeError", function (){
-    $state.go("signin");
+  // $rootScope.$on("stateChangeError", function (){
+  //   $state.go("signin");
   });
-});
+}]);
 
 //   });
 // });

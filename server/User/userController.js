@@ -114,18 +114,17 @@ module.exports = {
             username: username,
             password: password
           };
-          return create(newUser);
+          create(newUser)
+            .then(function (user) {
+              // create token to send back for auth
+              var token = jwt.encode(user, "secret");
+              res.json({token: token, userInfo: user});
+            });
         }
-      })
-      .then(function (user) {
-        // create token to send back for auth
-        var token = jwt.encode(user, "secret");
-        res.json({token: token});
       })
       .fail(function (error) {
         next(error);
       });
-    res.send("reached signup in userController");
   },
 
 // test
@@ -159,7 +158,7 @@ module.exports = {
   },
 
   changeFilterPreferences: function(req, res){
-    req.user.filterpreferences = req.body;
+    req.user.filterreferences = [req.body.title];
     //reset user's place in book collection
     req.user.bookPosition = 0;
     req.user.save(function(err, user) {

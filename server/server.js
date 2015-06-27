@@ -2,7 +2,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var cors = require("cors");
-var testStubs = require("./testposts.js");
+// var testStubs = require("./testposts.js");
 
 
 //instance of express
@@ -24,7 +24,7 @@ app.listen(port, function() {
    console.log("Listening on " + port);
  });
 
-testStubs();
+// testStubs();
 
 
 module.exports = app;

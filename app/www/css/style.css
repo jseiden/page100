@@ -115,4 +115,16 @@ td-card .back pre {
   width:80%;
 }
 
+img.bookCover{
+    display: block;
+    width: 100px;
+    height: 150px;
+}
+
+.stackInfo {
+    position: absolute;
+    top: 25%;
+    right: 70%;
+}
+
 /*end of card swipe css*/

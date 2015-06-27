@@ -25,12 +25,12 @@ angular.module("starter.cards", [])
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
     // TO DO: Check data passed to addToStack, e.g. index or entire book data
-    BookChoices.addToStack($scope.userId, cardTypes[index]);
+    BookChoices.addToStack($scope.userId, $scope.cards[index]);
+    $scope.currentCard = $scope.cards[index+1];
   };
 
   $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
-    $scope.currentCard = $scope.cards[0];
+    $scope.currentCard = $scope.cards[index+1];
     console.log("Card removed");
   };
 

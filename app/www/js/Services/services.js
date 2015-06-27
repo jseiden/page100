@@ -75,10 +75,10 @@ angular.module("starter.services", [])
   })
 
   .factory("BookChoices", function($http, SERVER){
-    var getBooks = function() {
+    var getBooks = function(userId, count) {
       return $http({
         method: "GET",
-        url: SERVER.url + "/book/getBooks"
+        url: SERVER.url + "/book/getBooks?count=" + count + "&user=" + userId
       })
       .then(function (resp){
         console.log("Books", resp);
@@ -119,4 +119,3 @@ angular.module("starter.services", [])
       removeFromStack: removeFromStack
     };
   });
-

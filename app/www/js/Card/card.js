@@ -9,12 +9,13 @@ angular.module("starter.cards", [])
     BookChoices.getBooks(userId, count)
       .then(function(books){
         $scope.cards = books;
-        $scope.currentCard = books[0];
+        $scope.currentCard = books[books.length - 1];
       });
   };
 
   $scope.userId = $rootScope.currentUser.id;
   $scope.getBooks($scope.userId, 10);
+
 
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
@@ -22,13 +23,12 @@ angular.module("starter.cards", [])
 
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
-    // TO DO: Check data passed to addToStack, e.g. index or entire book data
     BookChoices.addToStack($scope.userId, $scope.cards[index]);
-    $scope.currentCard = $scope.cards[index + 1];
+    $scope.currentCard = $scope.cards[index - 1];
   };
 
   $scope.cardDestroyed = function(index) {
-    $scope.currentCard = $scope.cards[index + 1];
+    $scope.currentCard = $scope.cards[index - 1];
     console.log("Card removed");
   };
 

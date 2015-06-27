@@ -159,7 +159,7 @@ module.exports = {
   },
 
   changeFilterPreferences: function(req, res){
-    req.user.filterpreferences = req.body;
+    req.user.filterreferences = [req.body.title];
     //reset user's place in book collection
     req.user.bookPosition = 0;
     req.user.save(function(err, user) {

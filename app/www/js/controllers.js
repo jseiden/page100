@@ -10,8 +10,8 @@ angular.module("starter.controllers", [])
   };
 })
 
-.controller("StackCtrl", function($scope, BookChoices) {
-  $scope.userId = 1;
+.controller("StackCtrl", function($scope, BookChoices, $rootScope) {
+  $scope.userId = $rootScope.currentUser.id;
   $scope.stack = [];
   // TO DO: connect to user specific stack.
   // $scope.getStack = function(){

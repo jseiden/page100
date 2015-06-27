@@ -35,13 +35,14 @@ module.exports = {
       })
         .limit(count)
         .exec(function(err, books){
-          if (!books) {
+          if (books.length === 0) {
             console.log("no books");
           }
           if (err) {
             console.log(err);
           } else {
-            //assign users position to id of last book in collection
+            //assign users position to id of last book in collection.
+            console.log(books);
             user.bookPosition = books[books.length - 1]._id;
             user.save(function(error) {
               if (err) {

@@ -2,32 +2,33 @@
 
 angular.module("starter.cards", [])
 
-.controller("CardsCtrl", function($scope, BookChoices){
+.controller("CardsCtrl", function($scope, BookChoices, $rootScope){
+  var cardTypes;
 
-  var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck"}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
+  // var cardTypes = [{image: "http://ecx.images-amazon.com/images/I/81eMMNVkt7L.jpg", title: "East of Eden", author: "John Steinbeck"}, {image: "http://ecx.images-amazon.com/images/I/81mEbZQOrXL.jpg", title: "Great Gatsby", author: "F. Scott Fitzgerald"}, {image: "http://ecx.images-amazon.com/images/I/51tkcSAhSDL.jpg", title: "100 Years of Solitude", author: "Gabriela Garcia Marquez"}];
 
-  // $scope.getBooks = function(){
-  //   BookChoices.getBooks()
-  //     .then(function(books){
-  //       cardTypes = books;
-  //     });
-  // };
-
-  // $scope.getBooks();
-  $scope.cards = [];
-  $scope.currentCard = cardTypes[0];
-  $scope.userId = 1;
-
-  $scope.addCard = function(index){
-    var newCard = cardTypes[index];
-    newCard.id = Math.floor(Math.random() * 5);
-    // cardTypes[index]._id;
-    $scope.cards.push(angular.extend({}, newCard));
+  $scope.getBooks = function(userId, count){
+    BookChoices.getBooks(userId, count)
+      .then(function(books){
+        $scope.cards = books;
+        $scope.currentCard = books[0]
+      });
   };
 
-  for(var i = 0; i < cardTypes.length; i++){
-    $scope.addCard(i);
-  }
+  $scope.userId = $rootScope.currentUser.id;
+  $scope.getBooks($scope.userId, 10);
+
+  //
+  // $scope.addCard = function(index){
+  //   var newCard = cardTypes[index];
+  //   newCard.id = Math.floor(Math.random() * 5);
+  //   // cardTypes[index]._id;
+  //   $scope.cards.push(angular.extend({}, newCard));
+  // };
+  //
+  // for(var i = 0; i < cardTypes.length; i++){
+  //   $scope.addCard(i);
+  // }
 
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);

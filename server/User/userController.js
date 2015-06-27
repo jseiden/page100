@@ -115,10 +115,10 @@ module.exports = {
             password: password
           };
           create(newUser)
-            .then(function (user) {
+            .then(function (madeUser) {
               // create token to send back for auth
-              var token = jwt.encode(user, "secret");
-              res.json({token: token, userInfo: user});
+              var token = jwt.encode(madeUser, "secret");
+              res.json({token: token, userInfo: madeUser});
             });
         }
       })

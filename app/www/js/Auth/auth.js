@@ -12,7 +12,7 @@ angular.module("starter.auth", [])
         $rootScope.currentUser = {
           username: data.userInfo.username,
           id: data.userInfo._id
-        }
+        };
         $location.path("/app/main");
       })
       .catch(function (error) {
@@ -28,7 +28,7 @@ angular.module("starter.auth", [])
         $rootScope.currentUser = {
           username: data.userInfo.username,
           id: data.userInfo._id
-        }
+        };
         $location.path("/stack");
       })
       .catch(function (error) {

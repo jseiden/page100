@@ -33,7 +33,7 @@ angular.module("starter.services", [])
 
     return {
       signin: signin,
-      signup: signup,
+      signup: signup
       // refreshUser: refreshUser
     };
   })

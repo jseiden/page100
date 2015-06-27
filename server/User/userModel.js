@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  filterPreferences: {type: [String], default: ["fantasy", "sci-fi", "education", "drama"]},
+  filterPreferences: {type: [String], default: ["Fantasy", "Sci-fi", "Education", "Drama", "Poetry", "Fiction", "Classic", "Modernism", "Mystery", "Horror", "Historical Fiction", "Non-fiction"]},
   salt: String,
   bookPosition: {type: Number, default: 0},
   stack: [{ type: Number, ref: "Book" }]

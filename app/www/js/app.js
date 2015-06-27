@@ -159,7 +159,7 @@ angular.module("starter", [
   return attach;
 })
 
-.run(["$rootScope", "$state", "$ionicSideMenuDelegate", function ($rootScope, $state, $ionicPlatform, $ionicSideMenuDelegate) {
+.run(["$rootScope", "$state", function ($rootScope, $state) {
 //   // here inside the run phase of angular, our services and controllers
 //   // have just been registered and our app is ready
 //   // however, we want to make sure the user is authorized

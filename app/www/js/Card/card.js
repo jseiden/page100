@@ -11,24 +11,12 @@ angular.module("starter.cards", [])
     BookChoices.getBooks(userId, count)
       .then(function(books){
         $scope.cards = books;
-        $scope.currentCard = books[0]
+        $scope.currentCard = books[0];
       });
   };
 
   $scope.userId = $rootScope.currentUser.id;
   $scope.getBooks($scope.userId, 10);
-
-  //
-  // $scope.addCard = function(index){
-  //   var newCard = cardTypes[index];
-  //   newCard.id = Math.floor(Math.random() * 5);
-  //   // cardTypes[index]._id;
-  //   $scope.cards.push(angular.extend({}, newCard));
-  // };
-  //
-  // for(var i = 0; i < cardTypes.length; i++){
-  //   $scope.addCard(i);
-  // }
 
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);

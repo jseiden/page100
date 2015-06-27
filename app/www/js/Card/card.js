@@ -16,18 +16,24 @@ angular.module("starter.cards", [])
   // $scope.getBooks();
   $scope.cards = [];
   $scope.currentCard = cardTypes[0];
-  $scope.userId = 1;
+  $scope.userId = 40;
 
-  $scope.addCard = function(index){
-    var newCard = cardTypes[index];
-    newCard.id = Math.floor(Math.random() * 5);
-    // cardTypes[index]._id;
-    $scope.cards.push(angular.extend({}, newCard));
+  $scope.addCard = function(id, img, title, author, genre, sample, amazonLink) {
+   var newCard = {_id: id, image: img, title: title, author: author, genre: genre, sample: sample, amazonLink: amazonLink};
+   $scope.cards.unshift(angular.extend({}, newCard));
   };
 
-  for(var i = 0; i < cardTypes.length; i++){
-    $scope.addCard(i);
-  }
+  $scope.addCards = function(userid, count) {
+   BookChoices.getBooks(userid, count).then(function(value){
+     angular.forEach(value, function(v){
+       $scope.addCard(v._id, v.image, v.title, v.author, v.genre, v.sample, v.amazonLink);
+     });
+     $scope.currentCard = $scope.cards[$scope.cards.length - 1];
+     console.log($scope.cards);
+   });
+  };
+
+  $scope.addCards($scope.userId, 4);
 
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
@@ -35,13 +41,12 @@ angular.module("starter.cards", [])
 
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
-    // TO DO: Check data passed to addToStack, e.g. index or entire book data
     BookChoices.addToStack($scope.userId, cardTypes[index]);
   };
 
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
-    $scope.currentCard = $scope.cards[0];
+    $scope.currentCard = $scope.cards[$scope.cards.length - 1];
     console.log("Card removed");
   };
 

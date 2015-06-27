@@ -11,7 +11,7 @@ angular.module("starter.controllers", [])
 })
 
 .controller("StackCtrl", function($scope, BookChoices) {
-  $scope.userId = 1;
+  $scope.userId = 40;
   $scope.stack = [];
   // TO DO: connect to user specific stack.
   // $scope.getStack = function(){
@@ -59,11 +59,16 @@ angular.module("starter.controllers", [])
   $scope.indvBook = $stateParams;
 })
 
-.controller("FiltersCtrl", function($scope) {
+.controller("FiltersCtrl", function($scope, filterChoices) {
+  var userId = 40;
   $scope.genres = [{title: "fantasy", filter: true},
     {title: "horror", filter: false},
     {title: "history", filter: false}
   ];
+  
+  $scope.changeFilter = function(){
+       filterChoices.changeFilter(userId, $scope.genres.selected);
+    };
 
   $scope.popularLists = [{title: "BestSellers", filter: true},
     {title: "Top 10", filter: false},

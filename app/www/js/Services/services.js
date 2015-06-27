@@ -118,5 +118,18 @@ angular.module("starter.services", [])
       getStack: getStack,
       removeFromStack: removeFromStack
     };
+  })
+
+  .factory("filterChoices", function($http){
+    var changeFilter = function(id, genre){
+      return $http({
+        method: "POST",
+        url: "http://localhost:3000/user/" + id + "/filterpreferences",
+        data: genre
+      });
+    };
+    return {
+      changeFilter: changeFilter
+    };
   });
 

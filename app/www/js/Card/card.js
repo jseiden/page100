@@ -16,13 +16,13 @@ angular.module("starter.cards", [])
   $scope.userId = $rootScope.currentUser.id;
   $scope.getBooks($scope.userId, 10);
 
+
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
  };
 
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
-    // TO DO: Check data passed to addToStack, e.g. index or entire book data
     BookChoices.addToStack($scope.userId, $scope.cards[index]);
     $scope.currentCard = $scope.cards[index - 1];
   };

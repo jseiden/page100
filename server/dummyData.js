@@ -20,7 +20,7 @@ module.exports = function() {
     image: "https://ia600802.us.archive.org/zipview.php?zip=/4/items/olcovers676/olcovers676-L.zip&file=6765535-L.jpg"
   });
 
-  var book6 = newBook({
+  var book6 = new Book({
     title: "Alice's Adventures in Wonderland",
     author: "Lewis Carroll",
     genre: "Fiction",
@@ -29,7 +29,7 @@ module.exports = function() {
     image: "https://ia700804.us.archive.org/zipview.php?zip=/30/items/olcovers712/olcovers712-L.zip&file=7129396-L.jpg"
   });
 
-  var book7 = newBook({
+  var book7 = new Book({
     title: "The Picture of Dorian Gray",
     author: "Oscar Wilde",
     genre: "Horror",
@@ -38,7 +38,7 @@ module.exports = function() {
     image: "https://ia700805.us.archive.org/zipview.php?zip=/7/items/olcovers381/olcovers381-L.zip&file=3815998-L.jpg"
   });
 
-  var book8 = newBook({
+  var book8 = new Book({
     title: "Dracula",
     author: "Bram Stroker",
     genre: "Horror",
@@ -47,7 +47,7 @@ module.exports = function() {
     image: "https://ia700801.us.archive.org/zipview.php?zip=/34/items/olcovers126/olcovers126-L.zip&file=1260405-L.jpg"
   });
 
-  var book9 = newBook({
+  var book9 = new Book({
     title: "The Adventures of Sherlock Holmes",
     author: "Arthur Conan Doyle",
     genre: "Mystery",
@@ -56,7 +56,7 @@ module.exports = function() {
     image: "http://www.penguinbooksindia.com/sites/default/files/book_image/9780143068600.jpg"
   });
 
-  var book10 = newBook({
+  var book10 = new Book({
     title: "Metamorphosis",
     author: "Franz Kafka",
     genre: "Modernism",
@@ -65,7 +65,7 @@ module.exports = function() {
     image: "https://ia700801.us.archive.org/zipview.php?zip=/34/items/olcovers126/olcovers126-L.zip&file=1260251-L.jpg"
   });
 
-  var book11 = newBook({
+  var book11 = new Book({
     title: "Ulysses",
     author: "James Joyce",
     genre: "Modernism",
@@ -74,7 +74,7 @@ module.exports = function() {
     image: "https://covers.openlibrary.org/b/id/7335145-L.jpg"
   });
 
-  var book12 = newBook({
+  var book12 = new Book({
     title: "The Jungle Book",
     author: "Rudyard Kipling",
     genre: "Fiction",
@@ -83,7 +83,7 @@ module.exports = function() {
     image: "https://ia700807.us.archive.org/zipview.php?zip=/24/items/olcovers202/olcovers202-L.zip&file=2026223-L.jpg"
   });
 
-  var book13 = newBook({
+  var book13 = new Book({
     title: "Heart of Darkness",
     author: "Joseph Conrad",
     genre: "Fiction",
@@ -92,7 +92,7 @@ module.exports = function() {
     image: "https://ia700801.us.archive.org/zipview.php?zip=/4/items/olcovers302/olcovers302-L.zip&file=3025007-L.jpg"
   });
 
-  var book14 = newBook({
+  var book14 = new Book({
     title: "A Tale of Two Cities",
     author: "Charles Dickens",
     genre: "Fiction",

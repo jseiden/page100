@@ -6,18 +6,17 @@
     		<div class="input label">
     		Genres
     		</div>
-    		<select>
-    			<option selected ng-repeat="genre in genres">{{ genre.title }}</option>
-    		</select>
+    		<select ng-change="changeFilter()" ng-model="genres.selected" ng-options="genre.title for genre in genres">
+            </select>
 		</label>
-		<label class="item item-input item-select">
+		<!-- <label class="item item-input item-select">
     		<div class="input label">
     		Popular Lists
     		</div>
     		<select>
     			<option selected ng-repeat="list in popularLists">{{ list.title }}</option>
     		</select>
-		</label>
+		</label> -->
 	</div>
   </ion-content>
 </ion-view>

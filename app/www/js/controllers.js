@@ -10,13 +10,9 @@ angular.module("starter.controllers", [])
   };
 })
 
-.controller("StackCtrl", function($scope, BookChoices) {
-  $scope.userId = 1;
+.controller("StackCtrl", function($scope, BookChoices, $rootScope) {
+  $scope.userId = $rootScope.currentUser.id;
   $scope.stack = [];
-  // TO DO: connect to user specific stack.
-  // $scope.getStack = function(){
-  //   $scope.stack = StackServices.getProperty();
-  // };
 
   $scope.getStack = function( id ) {
     BookChoices.getStack(id)
@@ -32,15 +28,6 @@ angular.module("starter.controllers", [])
 
   $scope.getStack($scope.userId);
 
-  // Test Data
-  // $scope.stack = [
-  //   {img: "cover", title: "100 Years of Solitude", id: 1 },
-  //   {img: "cover", title: "Johnny Got His Gun", id: 2 },
-  //   {img: "cover", title: "East of Eden", id: 3 },
-  //   {img: "cover", title: "Zero to One", id: 4 },
-  //   {img: "cover", title: "Invisible Man", id: 5 },
-  //   {img: "cover", title: "Romeo and Juliet", id: 6 }
-  // ];
 })
 
 .directive("noScroll", function(){
@@ -59,11 +46,15 @@ angular.module("starter.controllers", [])
   $scope.indvBook = $stateParams;
 })
 
-.controller("FiltersCtrl", function($scope) {
+.controller("FiltersCtrl", function($scope, filterChoices) {
+  var userId = 40;
   $scope.genres = [{title: "fantasy", filter: true},
     {title: "horror", filter: false},
     {title: "history", filter: false}
   ];
+  $scope.changeFilter = function(){
+       filterChoices.changeFilter(userId, $scope.genres.selected);
+    };
 
   $scope.popularLists = [{title: "BestSellers", filter: true},
     {title: "Top 10", filter: false},

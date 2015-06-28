@@ -1,8 +1,8 @@
 "use strict";
 var User = require("./userModel.js");
-//promise library
+// promise library
 var Q = require("q");
-//JSON tokens
+// JSON web tokens
 var jwt = require("jwt-simple");
 
 
@@ -25,6 +25,7 @@ module.exports = {
       });
   },
 
+  // add book to user's list of saved books aka 'stack'
   addToStack: function(req, res) {
     req.user.stack.push(req.body._id);
     req.user.save(function(err, user) {
@@ -36,6 +37,7 @@ module.exports = {
     });
   },
 
+  // remove a book from user's stack of saved books
   removeFromStack: function(req, res) {
     req.user.stack.splice(req.user.stack.indexOf(req.body._id), 1);
     req.user.save(function(err, user) {
@@ -67,11 +69,12 @@ module.exports = {
       });
   },
 
+  // compare user from ajax call to determine whether or not they should be allowed in
   signin: function(req, res, next){
     // res.send("reached signin in userController");
     var username = req.body.username;
     var password = req.body.password;
-    //TODO: this following code block seems to produce an error upon sigin request. may be a problem with curl, which is what I used to debug
+
     var findUser = Q.nbind(User.findOne, User);
 
     findUser({username: username})
@@ -169,6 +172,7 @@ module.exports = {
           }
         });
   },
+
   changeEmail: function(req, res){
     req.user.email = req.body;
     req.user.save(function(err, user) {
@@ -179,6 +183,7 @@ module.exports = {
           }
         });
   },
+
   changeUsername: function(req, res){
     req.user.username = req.body;
     req.user.save(function(err, user) {

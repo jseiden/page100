@@ -4,6 +4,7 @@ angular.module("starter.auth", [])
 .controller("AuthCtrl", function ($scope, Auth, $rootScope, $location, $window){
   $scope.user = {};
 
+  // sign in. if legit, add token to localStorage
   $scope.signin = function () {
     // $rootScope.currentUser = $scope.user;
     Auth.signin($scope.user)
@@ -20,6 +21,7 @@ angular.module("starter.auth", [])
       });
   };
 
+  // sign up, add token to localStorage
   $scope.signup = function () {
     // $rootScope.currentUser = $scope.user;
     Auth.signup($scope.user)
@@ -36,6 +38,7 @@ angular.module("starter.auth", [])
       });
   };
 
+  // signout by removing token from localStorage
   $scope.signout = function () {
     $window.localStorage.removeItem("com.starter");
     delete $rootScope.currentUser;

@@ -1,26 +1,26 @@
 "use strict";
 
-
 angular.module("starter.controllers", [])
 
 .controller("AppCtrl", function($scope, $location){
-
+  // redirects to path
   $scope.go = function( path ){
     $location.path( path );
   };
+
 })
 
 .controller("StackCtrl", function($scope, BookChoices, $rootScope) {
   $scope.userId = $rootScope.currentUser.id;
   $scope.stack = [];
-
+  // get list of saved books aka 'stack' using getStack method from BookChoices factory
   $scope.getStack = function( id ) {
     BookChoices.getStack(id)
       .then(function(data){
         $scope.stack = data.stack;
       });
   };
-
+  // remove specific index book from stack
   $scope.removeFromStack = function( id, index ){
     BookChoices.removeFromStack(id, index);
     $scope.getStack($scope.userId);

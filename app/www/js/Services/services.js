@@ -13,6 +13,7 @@ angular.module("starter.services", [])
           return resp.data;
         });
       };
+
     // post new user to server which will set up new account
     var signup = function (user) {
       return $http({
@@ -107,8 +108,8 @@ angular.module("starter.services", [])
       });
     };
 
-    var removeFromStack = function (id, book) {
     // delete a book from a user's stack of saved books
+    var removeFromStack = function (id, book) {
       return $http({
         method: "POST",
         url: SERVER.url + "/user/" + id + "/removebook",
@@ -124,7 +125,7 @@ angular.module("starter.services", [])
     };
   })
 
-  //
+  // updates the user's filters
   .factory("filterChoices", function($http){
     var changeFilter = function(id, genre){
       return $http({

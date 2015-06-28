@@ -5,7 +5,7 @@ angular.module("starter.cards", [])
 .controller("CardsCtrl", function($scope, BookChoices, $ionicSideMenuDelegate, $rootScope){
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
-
+  // retrieves books from the database
   $scope.getBooks = function(userId, count){
     BookChoices.getBooks(userId, count)
       .then(function(books){
@@ -17,11 +17,12 @@ angular.module("starter.cards", [])
   $scope.userId = $rootScope.currentUser.id;
   $scope.getBooks($scope.userId, 10);
 
-
+  // Handles book swiping 
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
  };
 
+ // Adds card to stack when user swipes right
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
     BookChoices.addToStack($scope.userId, $scope.cards[index]);

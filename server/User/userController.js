@@ -38,7 +38,6 @@ module.exports = {
 
   // remove a book from user's stack of saved books
   removeFromStack: function(req, res) {
-    console.log("Server", req.body);
     req.user.stack.splice(req.user.stack.indexOf(req.body._id), 1);
     req.user.save(function(err, user) {
       if (err) {

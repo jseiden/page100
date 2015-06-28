@@ -3,7 +3,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var cors = require("cors");
 // var testStubs = require("./testposts.js");
-var createDummies = require("./dummyData.js");
+// var createDummies = require("./dummyData.js");
 
 //instance of express
 var app = express();

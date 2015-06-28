@@ -28,5 +28,5 @@ module.exports = function (app) {
   app.post("/:id/username", userController.changeUsername);
   app.get("/:id/stack", userController.getStack);
   app.post("/:id/addbook", userController.addToStack);
-  app.delete("/:id/removebook", userController.removeFromStack);
+  app.post("/:id/removebook", userController.removeFromStack);
 };

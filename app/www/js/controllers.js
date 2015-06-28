@@ -21,9 +21,12 @@ angular.module("starter.controllers", [])
       });
   };
 
-  $scope.removeFromStack = function( id, index ){
-    BookChoices.removeFromStack(id, index);
-    $scope.getStack($scope.userId);
+  $scope.removeFromStack = function( index ){
+    console.log($scope.stack[index]);
+    BookChoices.removeFromStack($scope.userId, $scope.stack[index])
+      .then(function(){
+        $scope.getStack($scope.userId);
+      });
   };
 
   $scope.getStack($scope.userId);
@@ -46,8 +49,8 @@ angular.module("starter.controllers", [])
   $scope.indvBook = $stateParams;
 })
 
-.controller("FiltersCtrl", function($scope, filterChoices) {
-  var userId = 40;
+.controller("FiltersCtrl", function($scope, filterChoices, $rootScope) {
+  var userId = $rootScope.currentUser.id;
   $scope.genres = [{title: "fantasy", filter: true},
     {title: "horror", filter: false},
     {title: "history", filter: false}

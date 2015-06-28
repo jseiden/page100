@@ -49,8 +49,8 @@ angular.module("starter.controllers", [])
   $scope.indvBook = $stateParams;
 })
 
-.controller("FiltersCtrl", function($scope, filterChoices) {
-  var userId = 40;
+.controller("FiltersCtrl", function($scope, filterChoices, $rootScope) {
+  var userId = $rootScope.currentUser.id;
   $scope.genres = [{title: "fantasy", filter: true},
     {title: "horror", filter: false},
     {title: "history", filter: false}

@@ -1,5 +1,6 @@
 "use strict";
 
+// require userController so we can access its functions for the routes below
 var userController = require("./userController.js");
 
 module.exports = function (app) {
@@ -14,7 +15,7 @@ module.exports = function (app) {
   app.route("/checkAuth")
     .get(userController.checkAuth);
 
-  //test
+  // test
   app.route("/getUsers")
     .get(userController.getUsers);
 
@@ -22,7 +23,7 @@ module.exports = function (app) {
 
   app.param("id", userController.getUserById);
 
-  //getting and adding to stack
+  // getting and adding to stack
   app.post("/:id/filterpreferences", userController.changeFilterPreferences);
   app.post("/:id/email", userController.changeEmail);
   app.post("/:id/username", userController.changeUsername);

@@ -5,9 +5,11 @@ var request = require("request");
 // in helpers you will find the function that formats the book results
 var helpers = require("./../config/helpers");
 
+// In their current form, these methods are not tied into an automatic function of the app.
 module.exports = {
   //TODO: pass in author, title, instead of hard coding?
 
+  // get a list of books by a certain author. hard coded for now in var author
   getByAuthor: function(req, res){
     var author = "dahl";
     var fullPath = ("http://openlibrary.org/search.json?author=").concat(author);
@@ -19,7 +21,7 @@ module.exports = {
     });
   },
 
-  //TODO do we want this functionality? it returns one book
+  // TODO do we want this functionality? it returns one book
   // getByTitle: function(req, res){
   //   // var baseUrl = "https://www.googleapis.com/books/v1/volumes?q=intitle:";
   //   var title = "Of Mice and Men";
@@ -33,6 +35,7 @@ module.exports = {
   //   });
   // },
 
+  // get a list of books in a certain genre. currently hard coded in var genre
   getByGenre: function(req, res){
     var genre = "mystery";
     var genreConcat = genre.split(" ").join("\\");
@@ -43,11 +46,11 @@ module.exports = {
         res.send(resBody);
       }
     });
-  },
-
-  bulkAddtoDb: function(req, res, searchType, value){
-    console.log(req, res, searchType, value);
-    console.log("adding stuff to db");
   }
+
+  //, bulkAddtoDb: function(req, res, searchType, value){
+  //   console.log(req, res, searchType, value);
+  //   console.log("adding stuff to db");
+  // }
 
 };

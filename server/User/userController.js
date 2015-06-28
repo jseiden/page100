@@ -12,7 +12,6 @@ module.exports = {
     var findUser = Q.nbind(User.findOne, User);
     findUser({_id: id})
       .then(function (user) {
-        console.log(user);
         if (user) {
           req.user = user;
           next();
@@ -37,6 +36,7 @@ module.exports = {
   },
 
   removeFromStack: function(req, res) {
+    console.log("Server", req.body);
     req.user.stack.splice(req.user.stack.indexOf(req.body._id), 1);
     req.user.save(function(err, user) {
       if (err) {
@@ -57,7 +57,6 @@ module.exports = {
     populate("stack")
       .then(function(books) {
         if (books) {
-          console.log("Server getstack", books);
           res.json(books);
         } else {
           console.log("cannot find stack");

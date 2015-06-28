@@ -81,16 +81,15 @@ angular.module("starter.services", [])
         url: SERVER.url + "/book/getBooks?count=" + count + "&user=" + userId
       })
       .then(function (resp){
-        console.log("Books", resp);
         return resp.data;
       });
     };
 
-    var addToStack = function (id, bookId) {
+    var addToStack = function (id, book) {
       return $http({
         method: "POST",
         url: SERVER.url + "/user/" + id + "/addbook",
-        data: bookId
+        data: book
       });
     };
 
@@ -104,11 +103,11 @@ angular.module("starter.services", [])
       });
     };
 
-    var removeFromStack = function (id, bookId) {
+    var removeFromStack = function (id, book) {
       return $http({
-        method: "DELETE",
+        method: "POST",
         url: SERVER.url + "/user/" + id + "/removebook",
-        data: bookId
+        data: book
       });
     };
 

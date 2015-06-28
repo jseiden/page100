@@ -21,9 +21,12 @@ angular.module("starter.controllers", [])
       });
   };
 
-  $scope.removeFromStack = function( id, index ){
-    BookChoices.removeFromStack(id, index);
-    $scope.getStack($scope.userId);
+  $scope.removeFromStack = function( index ){
+    console.log($scope.stack[index]);
+    BookChoices.removeFromStack($scope.userId, $scope.stack[index])
+      .then(function(){
+        $scope.getStack($scope.userId);
+      });
   };
 
   $scope.getStack($scope.userId);

@@ -87,12 +87,8 @@ angular.module("starter.services", [])
       });
     };
 
-<<<<<<< HEAD
-    var addToStack = function (id, book) {
-=======
     // post book to a user's stack
-    var addToStack = function (id, bookId) {
->>>>>>> a4830c21c8d495719a47a24f0ade7b7679b9b10f
+    var addToStack = function (id, book) {
       return $http({
         method: "POST",
         url: SERVER.url + "/user/" + id + "/addbook",

@@ -277,183 +277,182 @@ module.exports = function() {
     image: "https://s-media-cache-ak0.pinimg.com/originals/56/53/a3/5653a39e3d503c2485abd244d5aa628e.jpg"
   });
 
-  // var book81 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book81 = new Book({
+    title: "Turn of the Screw",
+    author: "Henry James ",
+    genre: "Horror",
+    sample: "The flash of this knowledge--for it was knowledge in the midst of dread--produced in me the most extraordinary effect, started as I stood there, a sudden vibration of duty and courage. I say courage because I was beyond all doubt already far gone. I bounded straight out of the door again, reached that of the house, got, in an instant, upon the drive, and, passing along the terrace as fast as I could rush, turned a corner and came full in sight.",
+    amazonLink: "http://www.amazon.com/Turn-Screw-Dover-Thrift-Editions/dp/0486266842/ref=sr_1_1?s=books&ie=UTF8&qid=1435616549&sr=1-1&keywords=turn+of+the+screw&pebp=1435616555626&perid=13RMQEKBD78WNB8GP3ND",
+    image: "https://ia802702.us.archive.org/zipview.php?zip=/30/items/olcovers25/olcovers25-L.zip&file=252364-L.jpg"
+  });
 
-  // var book82 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book82 = new Book({
+    title: "Hamlet, Prince of Denmark",
+    author: "William Shakespeare",
+    genre: "Classic",
+    sample: "Full thirty times hath Phoebus' cart gone round\nNeptune's salt wash and Tellus' orbed ground,\nAnd thirty dozen moons with borrow'd sheen\nAbout the world have times twelve thirties been,\nSince love our hearts, and Hymen did our hands,\nUnite commutual in most sacred bands.\n",
+    amazonLink: "http://www.amazon.com/Hamlet-Folger-Library-Shakespeare-William/dp/074347712X/ref=sr_1_1?s=books&ie=UTF8&qid=1435616875&sr=1-1&keywords=hamlet&pebp=1435616878332&perid=0F3K8GRPEHR7PMJM4T08",
+    image: "https://ia700805.us.archive.org/zipview.php?zip=/16/items/olcovers10/olcovers10-L.zip&file=106923-L.jpg"
+  });
 
-  // var book83 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book83 = new Book({
+    title: "The Fall of the House of Usher",
+    author: "Edgar Allen Poe",
+    genre: "Horror",
+    sample: "Oppressed, as I certainly was, upon the occurrence of the second and most extraordinary coincidence, by a thousand conflicting sensations, in which wonder and extreme terror were predominant, I still retained sufficient presence of mind to avoid exciting, by any observation, the sensitive nervousness of my companion.",
+    amazonLink: "http://www.amazon.com/Fall-House-Usher-Edgar-Allan/dp/1496101243/ref=sr_1_2?s=books&ie=UTF8&qid=1435617181&sr=1-2&keywords=fall+of+the+house+of+usher",
+    image: "https://ia700805.us.archive.org/zipview.php?zip=/16/items/olcovers10/olcovers10-L.zip&file=106213-L.jpg"
+  });
 
-  // var book84 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book84 = new Book({
+    title: "White Fang",
+    author: "Jack London",
+    genre: "Fiction",
+    sample: "But he was not destined to enjoy that bed.  Before his eyes closed the wolves had drawn too near for safety.  It no longer required an effort of the vision to see them.  They were all about him and the fire, in a narrow circle, and he could see them plainly in the firelight lying down, sitting up, crawling forward on their bellies, or slinking back and forth.",
+    amazonLink: "http://www.amazon.com/White-Fang-Jack-London/dp/1505313104/ref=sr_1_1?s=books&ie=UTF8&qid=1435617333&sr=1-1&keywords=white+fang",
+    image: "https://ia700805.us.archive.org/zipview.php?zip=/7/items/olcovers699/olcovers699-L.zip&file=6998247-L.jpg"
+  });
 
-  // var book85 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book85 = new Book({
+    title: "Autobiography of Yogi",
+    author: "Paramhansa Yogananda",
+    genre: "Non-fiction",
+    sample: "My keen love of travel was seldom hindered by Father. He permitted me, even as a mere boy, to visit many cities and pilgrimage spots. Usually one or more of my friends accompanied me; we would travel comfortably on first-class passes provided by Father. His position as a railroad official was fully satisfactory to the nomads in the family.",
+    amazonLink: "http://www.amazon.com/Autobiography-Self-Realization-Fellowship-Paramahansa-Yogananda/dp/0876120796/ref=sr_1_1?s=books&ie=UTF8&qid=1435617467&sr=1-1&keywords=autobiography+of+a+yogi&pebp=1435617470322&perid=191B5PXGT2JA8TQ0ARM5",
+    image: "https://ia700804.us.archive.org/zipview.php?zip=/34/items/olcovers104/olcovers104-L.zip&file=1046217-L.jpg"
+  });
 
-  // var book86 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book86 = new Book({
+    title: "The Island of Doctor Moreau",
+    author: "H. G. Wells",
+    genre: "Then began a curious three-cornered altercation. Alternately I appealed to one and another of the three men,--first to the grey-haired man to let me land, and then to the drunken captain to keep me aboard.  I even bawled entreaties to the sailors. Montgomery said never a word, only shook his head.",
+    amazonLink: "http://www.amazon.com/Island-Doctor-Moreau-H-G-Wells/dp/1619492334/ref=sr_1_1?s=books&ie=UTF8&qid=1435617952&sr=1-1&keywords=island+of+doctor+moreau&pebp=1435617953649&perid=1NF7N33XWCXBDVAQDYC3",
+    image: "https://chrislatray.files.wordpress.com/2010/02/dr_moreau.jpg"
+  });
 
-  // var book87 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book87 = new Book({
+    title: "Buffalo Bill from Prairie to Palace",
+    author: "John M. Burke",
+    genre: "Non-fiction",
+    sample: "The first performance given in Manchester was complimentary, and the entire beauty, rank, and fashion of Manchester and the surrounding towns were invited guests. The mayors, town councils, corporation officials, prominent merchants and manufacturers, bishops and clergy of all denominations, and an able-bodied horde of pressmen came down in their thousands. From Liverpool, across country through Leeds and York to Hull and New Castle, and from Carlisle, as far south as Birmingham, everybody of consequence was present, and the immense building was filled to its utmost capacity.",
+    amazonLink: "http://www.amazon.com/Buffalo-Bill-Prairie-Authentic-History/dp/116597651X/ref=sr_1_1?s=books&ie=UTF8&qid=1435618593&sr=1-1&keywords=buffalo+bill+from+prairie+to+palace&pebp=1435618595058&perid=0AD5G2VD2WPVXNPPRQYY",
+    image: "https://ia600802.us.archive.org/zipview.php?zip=/21/items/olcovers167/olcovers167-L.zip&file=1671710-L.jpg"
+  });
 
-  // var book88 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book88 = new Book({
+    title: "The Man Who Would Be King",
+    author: "Rudyard Kipling",
+    genre: "Fiction",
+    sample: "Then I headed for the Great Indian Desert upon the proper date, as I had promised, and the night Mail set me down at Marwar Junction, where a funny little, happy-go-lucky, native managed railway runs to Jodhpore. The Bombay Mail from Delhi makes a short halt at Marwar. ",
+    amazonLink: "http://www.amazon.com/Man-Would-King-Other-Stories/dp/0486280519/ref=sr_1_1?s=books&ie=UTF8&qid=1435618929&sr=1-1&keywords=the+man+who+would+be+king",
+    image: "https://ia700802.us.archive.org/zipview.php?zip=/18/items/olcovers289/olcovers289-L.zip&file=2890121-L.jpg"
+  });
 
-  // var book89 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book89 = new Book({
+    title: "House of Mirth",
+    author: "Edith Wharton",
+    genre: "Historical-fiction",
+    sample: "Mrs. Peniston, under ordinary circumstances, was as much bored by her excellent cousin as the recipient of such services usually is by the person who performs them. She greatly preferred the brilliant and unreliable Lily, who did not know one end of a crochet-needle from the other, and had frequently wounded her susceptibilities by suggesting that the drawing-room should be 'done over.'",
+    amazonLink: "http://www.amazon.com/House-Mirth-Dover-Thrift-Editions/dp/0486420493/ref=sr_1_1?s=books&ie=UTF8&qid=1435619182&sr=1-1&keywords=house+of+mirth&pebp=1435619183203&perid=0DTTSMWRK33X2EBT2KM9",
+    image: "https://ia800305.us.archive.org/zipview.php?zip=/20/items/olcovers90/olcovers90-L.zip&file=902440-L.jpg"
+  });
 
-  // var book90 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book90 = new Book({
+    title: "All About Coffee",
+    author: "William H. Ukers",
+    genre: "Non-fiction",
+    sample: "Former patients in Mocha who sought out the good doctor-priest in his Ousab retreat, for physic with which to cure their ills, were given some of this decoction, with beneficial effect. As a result of the stories of its magical properties, carried back to the city, Sheik Omar was invited to return in triumph to Mocha where the governor caused to be built a monastery for him and his companions.",
+    amazonLink: "http://www.amazon.com/All-about-Coffee-History-Beverage/dp/1440556318/ref=sr_1_1?s=books&ie=UTF8&qid=1435619257&sr=1-1&keywords=all+about+coffee&pebp=1435619259355&perid=1Z4FQ0YK8RTQ7NSHRX47",
+    image: "http://img2.imagesbn.com/p/9781614270027_p0_v1_s260x420.JPG"
+  });
 
-  // var book91 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book91 = new Book({
+    title: "The Beautiful and the Damned",
+    author: " F. Scott Fitzgerald",
+    genre: "Historical Fiction",
+    sample: "Maury paused, and in his answer, when it came, there was a measure of weariness, a bitter overnote that lingered for a moment in those three minds before it floated up and off like a bubble bound for the moon.",
+    amazonLink: "http://www.amazon.com/Beautiful-Damned-Twentieth-Century-Classic/dp/1557420580/ref=sr_1_1?s=books&ie=UTF8&qid=1435619473&sr=1-1&keywords=beautiful+and+the+damned",
+    image: "https://ia800308.us.archive.org/zipview.php?zip=/27/items/olcovers29/olcovers29-L.zip&file=295889-L.jpg"
+  });
 
-  // var book92 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
-  // var book93 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
-  // var book94 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book92 = new Book({
+    title: "The Symbolism of Freemasonry",
+    author: "Albert G. Mackey",
+    genre: "Non-fiction",
+    sample: "One of these lines of religious thought and sentiment was the idolatrous and pagan world. With it all masonic doctrine, at least in its purity, was extinct, although there mingled with it, and at times to some extent influenced it, an offshoot from the other line, to which attention will be soon directed.",
+    amazonLink: "http://www.amazon.com/Symbolism-Freemasonry-Albert-G-Mackey/dp/146359089X/ref=sr_1_1?s=books&ie=UTF8&qid=1435619657&sr=1-1&keywords=symbolism+of+freemasonry",
+    image: "http://d.gr-assets.com/books/1328324134l/8291529.jpg"
+  });
+  var book93 = new Book({
+    title: "My Life and Work",
+    author: "Henry Ford",
+    genre: "Non-fiction",
+    sample: "All of our people come into the factory or the offices through the employment departments. As I have said, we do not hire experts--neither do we hire men on past experiences or for any position other than the lowest. Since we do not take a man on his past history, we do not refuse him because of his past history. I never met a man who was thoroughly bad.",
+    amazonLink: "http://www.amazon.com/My-Life-Work-Autobiography-Henry/dp/149428300X/ref=sr_1_1?s=books&ie=UTF8&qid=1435619882&sr=1-1&keywords=my+life+henry+ford&pebp=1435619883842&perid=08BKB3HZP97Q3ER2NHWA",
+    image: "https://ia700803.us.archive.org/zipview.php?zip=/10/items/olcovers178/olcovers178-L.zip&file=1788302-L.jpg"
+  });
+  var book94 = new Book({
+    title: "Twenty Years After",
+    author: "Alexandre Dumas",
+    genre: "Fiction",
+    sample: "There was little change in the cardinal; still dressed with sedulous care, his hair well arranged and curled, his person perfumed, he looked, owing to his extreme taste in dress, only half his age. But Rochefort, who had passed five years in prison, had become old in the lapse of a few years; the dark locks of this estimable friend of the defunct Cardinal Richelieu were now white; the deep bronze of his complexion had been succeeded by a mortal pallor which betokened debility.",
+    amazonLink: "http://www.amazon.com/Twenty-Years-Oxford-Worlds-Classics/dp/0199537267/ref=sr_1_1?s=books&ie=UTF8&qid=1435620092&sr=1-1&keywords=twenty+years+later",
+    image: "http://www.amazon.com/Twenty-Years-Oxford-Worlds-Classics/dp/0199537267/ref=sr_1_1?s=books&ie=UTF8&qid=1435620092&sr=1-1&keywords=twenty+years+later"
+  });
 
-  // var book95 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book95 = new Book({
+    title: "The Night Land",
+    author: "William Hope Hodgson ",
+    genre: "Horror",
+    sample: "The evil must surely have begun in the Days of the Darkening (which I might liken to a story which was believed doubtfully, much as we of this day believe the story of the Creation). A dim record there was of olden sciences (that are yet far off in our future) which, disturbing the unmeasurable Outward Powers, had allowed to pass the Barrier of Life some of those Monsters and Ab-human creatures, which are so wondrously cushioned from us at this normal present. ",
+    amazonLink: "http://www.amazon.com/Night-Land-William-Hope-Hodgson/dp/1482363089/ref=sr_1_1?ie=UTF8&qid=1435620317&sr=8-1&keywords=the+night+land&pebp=1435620321796&perid=174M6Y5FER2TA1RFWPAF",
+    image: "http://nightland.website/images/nightcover5.jpg"
+  });
 
-  // var book96 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book96 = new Book({
+    title: "The Underground Railroad",
+    author: "William Still",
+    genre: "Non-fiction",
+    sample: "In the meanwhile the brothers had passed safely on to New Bedford, but Clarissa remained secluded, 'waiting for the storm to subside.'' Keeping up courage day by day, for seventy-five days, with the fear of being detected and severely punished, and then sold, after all her hopes and struggles, required the faith of a martyr.",
+    amazonLink: "http://www.amazon.com/Underground-Railroad-Authentic-Narratives-First-Hand/dp/048645553X/ref=sr_1_1?ie=UTF8&qid=1435620694&sr=8-1&keywords=william+still+underground+railroad",
+    image: "https://ia601407.us.archive.org/zipview.php?zip=/1/items/olcovers275/olcovers275-L.zip&file=2757634-L.jpg"
+  });
 
-  // var book97 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book97 = new Book({
+    title: "Four Weird Tales",
+    author: "Algernon Blackwood",
+    genre: "Fiction",
+    sample: "But the questions, once started in his mind, continued. He must find explanation of one kind or another before he could lie down and sleep, and he found it at length in--the stars. The man was an astronomer of sorts; possibly an astrologer into the bargain",
+    amazonLink: "http://www.amazon.com/Four-Weird-Tales-Algernon-Blackwood-ebook/dp/B00849DHFO/ref=sr_1_1?ie=UTF8&qid=1435620821&sr=8-1&keywords=four+weird+tales&pebp=1435620822681&perid=1AX7NXXK3C2NFQDRBBA1",
+    image: "https://ia700809.us.archive.org/zipview.php?zip=/5/items/olcovers187/olcovers187-L.zip&file=1876764-L.jpg"
+  });
 
-  // var book98 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book98 = new Book({
+    title: "Chronicles of the Imp",
+    author: "Jeffery Farnol",
+    genre: "Fiction",
+    sample: "About his waist was a broad-buckled belt, which supported a wooden cutlass, two or three murderous wooden daggers and a brace of toy pistols; while upon his legs were a pair of top-boots many sizes too large for him, so that walking required no little care.",
+    amazonLink: "http://www.amazon.com/Chronicles-Imp-Jeffery-Farnol/dp/B00GZMXR4S/ref=sr_1_1?ie=UTF8&qid=1435620995&sr=8-1&keywords=chronicles+of+the+imp&pebp=1435620996670&perid=1GEAZXX80797ED70EJVK",
+    image: "https://www.gutenberg.org/cache/epub/49282/pg49282.cover.medium.jpg"
+  });
 
-  // var book99 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book99 = new Book({
+    title: "Three Men in a Boat",
+    author: "Jerome K. Jerome ",
+    genre: "Fiction",
+    sample: "Montmorency hailed this compromise with much approval.  He does not revel romantic solitude.  Give him something noisy; and if a trifle low, so much the jollier.  To look at Montmorency you would imagine that he was an angel sent upon the earth, for some reason withheld from mankind, in the shape of a small fox-terrier. ",
+    amazonLink: "http://www.amazon.com/Three-Men-Boat-Jerome-K/dp/1512099899/ref=sr_1_1?ie=UTF8&qid=1435621169&sr=8-1&keywords=three+men+in+a+boat",
+    image: "https://ia700805.us.archive.org/zipview.php?zip=/16/items/olcovers10/olcovers10-L.zip&file=100505-L.jpg"
+  });
 
-  // var book100 = new Book({
-  //   title: "",
-  //   author: "",
-  //   genre: "",
-  //   sample: "",
-  //   amazonLink: "",
-  //   image: ""
-  // });
+  var book100 = new Book({
+    title: "The Secret Adversary",
+    author: "Agatha Christie",
+    genre: "Mystery",
+    sample: "'On the contrary, I have every reason to believe he is an Englishman. He was pro-German, as he would have been pro-Boer. What he seeks to attain we do not know--probably supreme power for himself, of a kind unique in history. We have no clue as to his real personality. It is reported that even his own followers are ignorant of it.'",
+    amazonLink: "http://www.amazon.com/Secret-Adversary-Agatha-Christie/dp/1495950816/ref=sr_1_1?ie=UTF8&qid=1435621403&sr=8-1&keywords=the+secret+adversary&pebp=1435621405269&perid=10W7JVD1Y41J4GX6DW92",
+    image: "https://ia700807.us.archive.org/zipview.php?zip=/21/items/olcovers213/olcovers213-L.zip&file=2131875-L.jpg"
+  });
 
 
     book51.save(errorHandler);
@@ -486,5 +485,25 @@ module.exports = function() {
     book78.save(errorHandler);
     book79.save(errorHandler);
     book80.save(errorHandler);
+    book81.save(errorHandler);
+    book82.save(errorHandler);
+    book83.save(errorHandler);
+    book84.save(errorHandler);
+    book85.save(errorHandler);
+    book86.save(errorHandler);
+    book87.save(errorHandler);
+    book88.save(errorHandler);
+    book89.save(errorHandler);
+    book90.save(errorHandler);
+    book91.save(errorHandler);
+    book92.save(errorHandler);
+    book93.save(errorHandler);
+    book94.save(errorHandler);
+    book95.save(errorHandler);
+    book96.save(errorHandler);
+    book97.save(errorHandler);
+    book98.save(errorHandler);
+    book99.save(errorHandler);
+    book100.save(errorHandler);
 
 };

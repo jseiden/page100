@@ -100,4 +100,14 @@ module.exports = function() {
     image: "http://ecx.images-amazon.com/images/I/41ybm7h5bsL.jpg"
   });
 
+    book51.save(errorHandler);
+    book52.save(errorHandler);
+    book53.save(errorHandler);
+    book54.save(errorHandler);
+    book55.save(errorHandler);
+    book56.save(errorHandler);
+    book57.save(errorHandler);
+    book58.save(errorHandler);
+    book59.save(errorHandler);
+    book60.save(errorHandler);
 };

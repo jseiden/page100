@@ -1,12 +1,14 @@
 "use strict";
 
+// require promise library
 var Q = require("q");
+// require mongoose models for book and user
 var Book = require("./bookModel.js");
 var User = require("../User/userModel.js");
 
 
-//getTenBooks
-//getBookByTitle
+// getTenBooks
+// getBookByTitle
 //
 var findUserById = function(userId, callback) {
   var findUser = Q.nbind(User.findOne, User);
@@ -15,14 +17,14 @@ var findUserById = function(userId, callback) {
   });
 };
 
-
-
 module.exports = {
 
+  // postBook was just for testing
   postBook: function (req, res){
     res.send("reached postBook in books Controller");
   },
 
+  // get books from db
   getBooks: function(req, res){
     var count = req.query.count || 10;
     var userId = req.query.user;
@@ -41,9 +43,9 @@ module.exports = {
           if (err) {
             console.log(err);
           } else {
-            //assign users position to id of first book in collection. note that books are being sent from highest id to lowest id
+            // assign users position to id of first book in collection. note that books are being sent from highest id to lowest id
             console.log(books);
-            user.bookPosition = books[books.length - 1]._id;
+            user.bookPosition = books[books.length - 1] ? books[books.length - 1]._id : 0;
             user.save(function(error) {
               if (err) {
                 console.log(error);

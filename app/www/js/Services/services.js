@@ -2,6 +2,7 @@
 angular.module("starter.services", [])
 
   .factory("Auth", function($http, SERVER){
+    // post potential user to server which will determine if legit
     var signin = function (user) {
         return $http({
           method: "POST",
@@ -13,6 +14,7 @@ angular.module("starter.services", [])
         });
       };
 
+    // post new user to server which will set up new account
     var signup = function (user) {
       return $http({
         method: "POST",
@@ -75,25 +77,27 @@ angular.module("starter.services", [])
   })
 
   .factory("BookChoices", function($http, SERVER){
+    // get books that have not been seen already
     var getBooks = function(userId, count) {
       return $http({
         method: "GET",
         url: SERVER.url + "/book/getBooks?count=" + count + "&user=" + userId
       })
       .then(function (resp){
-        console.log("Books", resp);
         return resp.data;
       });
     };
 
-    var addToStack = function (id, bookId) {
+    // post book to a user's stack
+    var addToStack = function (id, book) {
       return $http({
         method: "POST",
         url: SERVER.url + "/user/" + id + "/addbook",
-        data: bookId
+        data: book
       });
     };
 
+    // return a user's stack of saved books
     var getStack = function (id) {
       return $http({
         method: "GET",
@@ -104,11 +108,12 @@ angular.module("starter.services", [])
       });
     };
 
-    var removeFromStack = function (id, bookId) {
+    // delete a book from a user's stack of saved books
+    var removeFromStack = function (id, book) {
       return $http({
-        method: "DELETE",
+        method: "POST",
         url: SERVER.url + "/user/" + id + "/removebook",
-        data: bookId
+        data: book
       });
     };
 
@@ -120,11 +125,12 @@ angular.module("starter.services", [])
     };
   })
 
+  // updates the user's filters
   .factory("filterChoices", function($http){
     var changeFilter = function(id, genre){
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user/" + id + "/filterpreferences",
+        url: SERVER.url + "/user/" + id + "/filterpreferences",
         data: genre
       });
     };

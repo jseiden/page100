@@ -3,11 +3,13 @@ var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
 var Q = require("q");
 var SALT_WORK_FACTOR = 10;
+// autoIncrement is used to assign a unique number to each book entering the db
 var autoIncrement = require("mongoose-auto-increment");
 
 var connection = mongoose.createConnection("mongodb://user:wemakeawesomeshit@ds051110.mongolab.com:51110/page100");
 autoIncrement.initialize(connection);
 
+// define data related to a single user
 var UserSchema = new mongoose.Schema({
   email: String,
   username: {
@@ -66,6 +68,5 @@ UserSchema.pre("save", function(next){
 });
 
 UserSchema.plugin(autoIncrement.plugin, "User");
-
 
 module.exports = mongoose.model("users", UserSchema);

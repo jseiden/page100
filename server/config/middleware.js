@@ -6,15 +6,15 @@ var helpers = require("./helpers.js");
 
 module.exports = function (app, express) {
 
-  //TODO: figure out if express.Router is still needed. mixed options online and works as is
+  // TODO: figure out if express.Router is still needed. mixed options online and works as is
   var userRouter = express.Router();
   var bookRouter = express.Router();
   var booksApiRouter = express.Router();
 
-  //logs http requests
+  // logs http requests
   app.use(morgan("dev"));
 
-  //parses body of http request
+  // parses body of http request
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
@@ -25,7 +25,7 @@ module.exports = function (app, express) {
   app.use("/booksApi", booksApiRouter);
   app.use("./../User", helpers.decode);
 
-  //TODO figure out why this format breaks it:
+  // TODO figure out why this format breaks it:
   //   require("../User/userRoutes.js")(userRouter);
 
   require("./../User/userRoutes.js")(userRouter);

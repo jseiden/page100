@@ -4,8 +4,8 @@ angular.module("starter.auth", [])
 .controller("AuthCtrl", function ($scope, Auth, $rootScope, $location, $window){
   $scope.user = {};
 
+  // sign in. if legit, add token to localStorage and sets current user in $rootScope
   $scope.signin = function () {
-    // $rootScope.currentUser = $scope.user;
     Auth.signin($scope.user)
       .then(function (data) {
         $window.localStorage.setItem("com.starter", data.token);
@@ -20,8 +20,8 @@ angular.module("starter.auth", [])
       });
   };
 
+  // sign up, add token to localStorage and sets current user in $rootScope
   $scope.signup = function () {
-    // $rootScope.currentUser = $scope.user;
     Auth.signup($scope.user)
       .then(function (data) {
         $window.localStorage.setItem("com.starter", data.token);
@@ -29,17 +29,17 @@ angular.module("starter.auth", [])
           username: data.userInfo.username,
           id: data.userInfo._id
         };
-        $location.path("/stack");
+        $location.path("/app/main");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
+  // signout by removing token from localStorage and removing current user in $rootScope
   $scope.signout = function () {
     $window.localStorage.removeItem("com.starter");
     delete $rootScope.currentUser;
-    // $rootScope.currentUser = "undefined";
     $location.path("/signin");
   };
 

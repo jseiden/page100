@@ -61,13 +61,14 @@ angular.module("starter.controllers", [])
     userInfo.getUser(userId)
     .then(function(result){
       if(result.filterPreferences[0]){
+        //this is bad. TODO: please fix this to less complexity.
         $scope.genres.selected = $scope.genres[$scope.genres.map(function(genre){return genre.title;}).indexOf(result.filterPreferences[0])];
       }
     });
   };
-  
+
   $scope.checkFilter();
-  
+
   $scope.changeFilter = function(){
     filterChoices.changeFilter(userId, JSON.stringify($scope.genres.selected));
   };

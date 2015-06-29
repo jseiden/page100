@@ -130,7 +130,7 @@ angular.module("starter.services", [])
     var changeFilter = function(id, genre){
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user/" + id + "/filterpreferences",
+        url: SERVER.url + "/user/" + id + "/filterpreferences",
         data: genre
       });
     };

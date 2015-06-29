@@ -29,7 +29,7 @@ angular.module("starter.auth", [])
           username: data.userInfo.username,
           id: data.userInfo._id
         };
-        $location.path("/stack");
+        $location.path("/app/main");
       })
       .catch(function (error) {
         console.log(error);

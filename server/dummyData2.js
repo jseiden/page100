@@ -20,7 +20,7 @@ module.exports = function() {
     image: "https://covers.openlibrary.org/b/id/902510-M.jpg"
   });
 
-  var book52  = new Book({
+  var book52 = new Book({
     title: "The Rome Express",
     author: "Arthur Griffiths",
     genre: "Mystery",
@@ -210,7 +210,7 @@ module.exports = function() {
     title: "Songs of Innocence, and Songs of Experience",
     author: "William Blake",
     genre: "Poetry",
-    sample: "In what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?",\n
+    sample: "In what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?",
     amazonLink: "http://www.amazon.com/Songs-Innocence-Experience-William-Blake/dp/159986844X/ref=sr_1_2?s=books&ie=UTF8&qid=1435613368&sr=1-2&keywords=blake+songs+of+innocence+and+experience",
     image: "https://ia700807.us.archive.org/zipview.php?zip=/33/items/olcovers200/olcovers200-L.zip&file=2007307-L.jpg"
   });
@@ -277,183 +277,214 @@ module.exports = function() {
     image: "https://s-media-cache-ak0.pinimg.com/originals/56/53/a3/5653a39e3d503c2485abd244d5aa628e.jpg"
   });
 
-  var book81 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book81 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book82 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book82 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book83 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book83 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book84 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book84 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book85 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book85 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book86 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book86 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book87 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book87 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book88 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book88 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book89 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book89 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book90 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book90 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book91 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book91 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book92 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
-  var book93 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
-  var book94 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book92 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
+  // var book93 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
+  // var book94 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book95 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book95 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book96 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book96 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book97 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book97 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book98 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book98 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book99 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book99 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
-  var book100 = new Book({
-    title: "",
-    author: "",
-    genre: "",
-    sample: "",
-    amazonLink: "",
-    image: ""
-  });
+  // var book100 = new Book({
+  //   title: "",
+  //   author: "",
+  //   genre: "",
+  //   sample: "",
+  //   amazonLink: "",
+  //   image: ""
+  // });
 
+
+    book51.save(errorHandler);
+    book52.save(errorHandler);
+    book53.save(errorHandler);
+    book54.save(errorHandler);
+    book55.save(errorHandler);
+    book56.save(errorHandler);
+    book57.save(errorHandler);
+    book58.save(errorHandler);
+    book59.save(errorHandler);
+    book60.save(errorHandler);
+    book61.save(errorHandler);
+    book62.save(errorHandler);
+    book63.save(errorHandler);
+    book64.save(errorHandler);
+    book65.save(errorHandler);
+    book66.save(errorHandler);
+    book67.save(errorHandler);
+    book68.save(errorHandler);
+    book69.save(errorHandler);
+    book70.save(errorHandler);
+    book71.save(errorHandler);
+    book72.save(errorHandler);
+    book73.save(errorHandler);
+    book74.save(errorHandler);
+    book75.save(errorHandler);
+    book76.save(errorHandler);
+    book77.save(errorHandler);
+    book78.save(errorHandler);
+    book79.save(errorHandler);
+    book80.save(errorHandler);
 
 };

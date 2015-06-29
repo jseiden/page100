@@ -17,7 +17,7 @@ angular.module("starter.cards", [])
   $scope.userId = $rootScope.currentUser.id;
   $scope.getBooks($scope.userId, 10);
 
-  // Handles book swiping 
+  // Handles book swiping
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
  };

@@ -7,6 +7,7 @@ var mongoose = require("mongoose");
 var cors = require("cors");
 // var testStubs = require("./testposts.js");
 // var createDummies = require("./dummyData.js");
+// var createDummies2 = require("./dummyData2.js");
 
 // instance of express
 var app = express();
@@ -21,7 +22,7 @@ mongoose.connect("mongodb://user:wemakeawesomeshit@ds051110.mongolab.com:51110/p
 require("./config/middleware.js")(app, express);
 
 //port 80 is normal for digital ocean servers
-var port = 80;
+var port = 3000;
 
 
 app.listen(port, function() {
@@ -30,5 +31,6 @@ app.listen(port, function() {
 
 // testStubs();
 // createDummies();
+// createDummies2();
 
 module.exports = app;

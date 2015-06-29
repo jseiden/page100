@@ -52,9 +52,10 @@ angular.module("starter.controllers", [])
 
 .controller("FiltersCtrl", function($scope, filterChoices, $rootScope) {
   var userId = $rootScope.currentUser.id;
-  $scope.genres = [{title: "fantasy", filter: true},
-    {title: "horror", filter: false},
-    {title: "history", filter: false}
+  $scope.genres = [{title: "Poetry", filter: true},
+    {title: "Classic", filter: false},
+    {title: "Modernism", filter: false},
+    {title: "Fiction", filter: false}
   ];
   $scope.changeFilter = function(){
        filterChoices.changeFilter(userId, $scope.genres.selected);

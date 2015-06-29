@@ -6,16 +6,20 @@ angular.module("starter.cards", [])
   //prevent side menu from dragging out with cards
   $ionicSideMenuDelegate.canDragContent(false);
 
+  $scope.$on("$ionicView.enter", function() {
+  $scope.getBooks($scope.userId, 10);
+      console.log("noticed");
+  });
+
   $scope.getBooks = function(userId, count){
     BookChoices.getBooks(userId, count)
       .then(function(books){
         $scope.cards = books;
-        $scope.currentCard = books[books.length - 1];
+        $scope.currentCard = $scope.cards[$scope.cards.length - 1];
       });
   };
 
   $scope.userId = $rootScope.currentUser.id;
-  $scope.getBooks($scope.userId, 10);
 
 
   $scope.cardSwipedLeft = function(index) {
@@ -24,6 +28,7 @@ angular.module("starter.cards", [])
 
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
+    console.log($scope.cards[index].genre);
     BookChoices.addToStack($scope.userId, $scope.cards[index]);
     $scope.currentCard = $scope.cards[index - 1];
   };

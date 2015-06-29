@@ -62,7 +62,7 @@ angular.module("starter.controllers", [])
     .then(function(result){
       if(result.filterPreferences[0]){
         //this is bad. TODO: please fix this to less complexity.
-        $scope.genres.selected = $scope.genres[$scope.genres.map(function(genre){return genre.title;}).indexOf(result.filterPreferences[0])];
+        $scope.genres.selected = $scope.genres[$scope.genres.map(function(genre){return genre.title; }).indexOf(result.filterPreferences[0])];
       }
     });
   };

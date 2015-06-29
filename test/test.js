@@ -13,8 +13,9 @@ var server;
 //see server/testposts.js for posts with which we will test
 
 describe("server", function() {
+
   before(function(){
-    server = app.listen(8000);
+    server = app.listen(3000);
   });
 
   after(function(){
@@ -33,7 +34,25 @@ describe("server", function() {
         console.log("error: ", err);
       }).end(done);
     });
+
+    describe("Users", function(){
+      it("returns 200 status code upon GET to /users/getUsers", function(){
+        request(app)
+          .get("/user/getUsers")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .end(function(err){
+            if (err){
+              throw err;
+            }
+          });
+      });
+    });
+
+
   });
+
+
 
 
 });

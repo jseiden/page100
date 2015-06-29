@@ -17,6 +17,7 @@ angular.module("starter.controllers", [])
   $scope.getStack = function( id ) {
     BookChoices.getStack(id)
       .then(function(data){
+        console.log(data);
         $scope.stack = data.stack;
       });
   };
@@ -52,16 +53,24 @@ angular.module("starter.controllers", [])
 })
 
 
-.controller("FiltersCtrl", function($scope, filterChoices, $rootScope) {
+.controller("FiltersCtrl", function($scope, filterChoices, userInfo, $rootScope) {
   var userId = $rootScope.currentUser.id;
-  $scope.genres = [{title: "Poetry", filter: true},
-    {title: "Classic", filter: false},
-    {title: "Modernism", filter: false},
-    {title: "Fiction", filter: false}
-  ];
+  $scope.genres = [{title: "Poetry"}, {title: "Classic"}, {title: "Modernism"}, {title: "Fiction"}];
+  console.log($scope.genres[0]);
+  $scope.checkFilter = function(){
+    userInfo.getUser(userId)
+    .then(function(result){
+      if(result.filterPreferences[0]){
+        $scope.genres.selected = $scope.genres[$scope.genres.map(function(genre){return genre.title;}).indexOf(result.filterPreferences[0])];
+      }
+    });
+  };
+  
+  $scope.checkFilter();
+  
   $scope.changeFilter = function(){
-       filterChoices.changeFilter(userId, $scope.genres.selected);
-    };
+    filterChoices.changeFilter(userId, JSON.stringify($scope.genres.selected));
+  };
 
   $scope.popularLists = [{title: "BestSellers", filter: true},
     {title: "Top 10", filter: false},

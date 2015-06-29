@@ -170,6 +170,10 @@ module.exports = {
           }
         });
   },
+  
+  getUser: function(req, res){
+    res.json(req.user);
+  },
 
   changeEmail: function(req, res){
     req.user.email = req.body;

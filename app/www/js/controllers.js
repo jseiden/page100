@@ -1,19 +1,19 @@
 "use strict";
 
-
 angular.module("starter.controllers", [])
 
 .controller("AppCtrl", function($scope, $location){
-
+  // redirects to path
   $scope.go = function( path ){
     $location.path( path );
   };
+
 })
 
 .controller("StackCtrl", function($scope, BookChoices, $rootScope) {
   $scope.userId = $rootScope.currentUser.id;
   $scope.stack = [];
-
+  // get list of saved books aka 'stack' using getStack method from BookChoices factory
   $scope.getStack = function( id ) {
     BookChoices.getStack(id)
       .then(function(data){
@@ -21,6 +21,7 @@ angular.module("starter.controllers", [])
       });
   };
 
+  // remove book at index from stack
   $scope.removeFromStack = function( index ){
     console.log($scope.stack[index]);
     BookChoices.removeFromStack($scope.userId, $scope.stack[index])
@@ -44,10 +45,12 @@ angular.module("starter.controllers", [])
   };
 })
 
+// Set-up for possible redirect when user clicks on book in stack
 .controller("IndvBookCtrl", function($scope, $stateParams) {
   console.log($stateParams);
   $scope.indvBook = $stateParams;
 })
+
 
 .controller("FiltersCtrl", function($scope, filterChoices, $rootScope) {
   var userId = $rootScope.currentUser.id;
@@ -63,10 +66,4 @@ angular.module("starter.controllers", [])
     {title: "Top 10", filter: false},
     {title: "Top 25", filter: false}
   ];
-
-  // retrieve genres
-  $scope.getUserGenres = function(){};
-
-  // update genre filters in database
-  $scope.changeUserGenres = function(){};
 });

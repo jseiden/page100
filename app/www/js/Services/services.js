@@ -124,16 +124,34 @@ angular.module("starter.services", [])
       removeFromStack: removeFromStack
     };
   })
+  
+  .factory("userInfo", function($http, SERVER){
+    var getUser = function(id){
+      return $http({
+        method: "GET",
+        url: SERVER.url + "/user/" + id + "/userInfo"
+      })
+      .then(function(resp){
+        return resp.data;
+      });
+    };
+    
+    return {
+      getUser: getUser
+    };
+  })
 
   // updates the user's filters
-  .factory("filterChoices", function($http){
+  .factory("filterChoices", function($http, SERVER){
     var changeFilter = function(id, genre){
       return $http({
         method: "POST",
-        url: "http://localhost:3000/user/" + id + "/filterpreferences",
+        url: SERVER.url + "/user/" + id + "/filterpreferences",
         data: genre
       });
     };
+
+
     return {
       changeFilter: changeFilter
     };

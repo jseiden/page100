@@ -47,6 +47,42 @@ describe("server", function() {
             }
           });
       });
+
+      it("returns 200 status code upon GET to /users/signin", function(){
+        request(app)
+          .get("/user/signin")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .end(function(err){
+            if (err){
+              throw err;
+            }
+          });
+      });
+
+      it("returns 200 status code upon GET to /users/signup", function(){
+        request(app)
+          .get("/user/signup")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .end(function(err){
+            if (err){
+              throw err;
+            }
+          });
+      });
+
+      it("returns 200 status code upon GET to /users/checkAuth", function(){
+        request(app)
+          .get("/user/checkAuth")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .end(function(err){
+            if (err){
+              throw err;
+            }
+          });
+      });
     });
 
 

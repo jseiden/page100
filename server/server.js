@@ -1,6 +1,7 @@
 "use strict";
 
 var express = require("express");
+
 // require mongoose to interact with mongodb
 var mongoose = require("mongoose");
 var cors = require("cors");
@@ -10,7 +11,7 @@ var cors = require("cors");
 // instance of express
 var app = express();
 
-// use CORS module
+// use CORS module to resolve cross-origin requests
 app.use(cors());
 
 // connect to mongolab db

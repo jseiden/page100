@@ -1,5 +1,4 @@
 "use strict";
-// Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // "starter" is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -31,19 +30,6 @@ angular.module("starter", [
 
 // config function injects Providers
 .config(["$stateProvider", "$urlRouterProvider", "$httpProvider", function ($stateProvider, $urlRouterProvider, $httpProvider) {
-  // var authenticated = [ "$q", "Auth", function ($q, Auth){
-  //   var deferred = $q.defer();
-  //   Auth.isAuth()
-  //     .then(function(isLoggedIn){
-  //       if(isLoggedIn){
-  //         deferred.resolve();
-  //       } else {
-  //         deferred.reject("Not logged in");
-  //       }
-  //     });
-  //     return deferred.promise;
-  // }];
-
 
   $urlRouterProvider.otherwise("/signin");
   $httpProvider.interceptors.push("AttachTokens");
@@ -56,7 +42,7 @@ angular.module("starter", [
       templateUrl: "templates/menu.html",
       controller: "AppCtrl",
       data: {
-        requireLogin: true
+        requireLogin: true // affects all children of app
       }
     })
 
@@ -86,9 +72,6 @@ angular.module("starter", [
           controller: "CardsCtrl"
         }
       }
-      // resolve: {
-      //   authenticated: authenticated
-      // }
     })
 
     .state("app.filters", {
@@ -99,9 +82,6 @@ angular.module("starter", [
           controller: "FiltersCtrl"
         }
       }
-      // resolve: {
-      //   authenticated: authenticated
-      // }
     })
 
     .state("app.accountSettings", {
@@ -111,9 +91,6 @@ angular.module("starter", [
           templateUrl: "templates/accountSettings.html"
         }
       }
-      // resolve: {
-      //   authenticated: authenticated
-      // }
     })
       .state("app.stack", {
         url: "/stack",
@@ -123,9 +100,6 @@ angular.module("starter", [
             controller: "StackCtrl"
           }
         }
-        // resolve: {
-        //   authenticated: authenticated
-        // }
       })
 
     .state("app.book", {
@@ -169,14 +143,13 @@ angular.module("starter", [
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready
   // however, we want to make sure the user is authorized
-  // we listen for when angular is trying to change routes
-  // when it does change routes, we then look for the token in localstorage
+  // we listen for when angular is trying to change states,
+  // when it does change states, we then look for the token in localstorage
   // and send that token to the server to see if it is a real user or hasn"t expired
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on("$stateChangeStart", function (event, toState) {
     var requireLogin = toState.data.requireLogin;
       if(requireLogin && !$rootScope.currentUser){
-
         // if(localStorage.getItem("com.starter")) {
         //   Auth.refreshUser(function () { // Inject Auth when this is used
         //     $state.go(toState);
@@ -186,18 +159,7 @@ angular.module("starter", [
           console.log("User must be logged in to view this page");
           $state.go("signin");
         }
-
-  // $rootScope.$on("$routeChangeStart", function(evt, next, current){
-  //   if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-  //     $location.path("/signin");
-  //   }
-  // });
-
-  // $rootScope.$on("stateChangeError", function (){
-  //   $state.go("signin");
   });
 
 }]);
 
-//   });
-// });

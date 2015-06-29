@@ -11,6 +11,7 @@ angular.module("starter.cards", [])
       console.log("noticed");
   });
 
+  // retrieves books from the database
   $scope.getBooks = function(userId, count){
     BookChoices.getBooks(userId, count)
       .then(function(books){
@@ -21,11 +22,12 @@ angular.module("starter.cards", [])
 
   $scope.userId = $rootScope.currentUser.id;
 
-
+  // Handles book swiping
   $scope.cardSwipedLeft = function(index) {
    console.log("Left swipe", index);
  };
 
+ // Adds card to stack when user swipes right
   $scope.cardSwipedRight = function(index) {
     console.log("Right swipe", index);
     console.log($scope.cards[index].genre);
